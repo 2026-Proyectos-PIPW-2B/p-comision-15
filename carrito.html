@@ -2,66 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <title>Document</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="Inicio.html"> PipElectronics </a>
-        <div class="align-items-end">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="Inicio.html"> PipElectronics </a>
+      <div class="align-items-end">
         <button class="btn btn-danger" type="button">
-        <i class="bi bi-person-circle"></i>
+          <i class="bi bi-person-circle"></i>
         </button>
         <button type="button" class="btn btn-danger">
           <i class="bi bi-cart"></i>
         </button>
+      </div>
+    </div>
+  </nav>
+  <main class="container flex-grow-1">
+    <div class="container px-5 py-2" id="featured-3">
+      <h1 class="pb-2 border-bottom">Tu carrito:</h1>
+      <div class="px-2 pt-2 my-2 text-center border-bottom">
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Todavia no has agregado ningun producto a tu carrito</p>
+          <div class="d-grid  d-sm-flex justify-content-sm-center">
+            <a href="catalogo.html">
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Volver al catalogo</button>
+            </a>
+          </div>
+          <img src="img/Carrito-compras.png" class="img-fluid ">
         </div>
       </div>
-    </nav>
-     <main class="container flex-grow-1">
-     </main>
-        <footer id="footer" class="bg-dark text-white py-4">
-      <div class="container">
-        <div class="row text-center text-md-start">
-          <div class="col-md-4 mb-3">
-            <h5>PipElectronics</h5>
-            <p>La tienda electronica mas completa del pais</p>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>Links</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="inicio" class="text-white text-decoration-none">Inicio</a>
-              </li>
-              <li>
-                <a href="productos.html" class="text-white text-decoration-none">Productos</a>
-              </li>
-              <li>
-                <a href="carritos.html" class="text-white text-decoration-none">Carrito</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-md-4">
-            <h5>Redes</h5>
-
-            <div
-              class="d-flex gap-3 justify-content-center justify-content-md-start"
-            >
-              <i class="bi bi-instagram fs-4"></i>
-              <i class="bi bi-facebook fs-4"></i>
-              <i class="bi bi-twitter-x fs-4"></i>
-            </div>
-          </div>
+    </div>
+  </main>
+  <footer id="footer" class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4 mb-3">
+          <h5>PipElectronics</h5>
+          <p>La tienda electronica mas completa del pais</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="inicio" class="text-white text-decoration-none">Inicio</a>
+            </li>
+            <li>
+              <a href="productos.html" class="text-white text-decoration-none">Productos</a>
+            </li>
+            <li>
+              <a href="carritos.html" class="text-white text-decoration-none">Carrito</a>
+            </li>
+          </ul>
         </div>
 
-        <hr />
+        <div class="col-md-4">
+          <h5>Redes</h5>
 
-        <p class="text-center mb-0">© 2026 PipElectronics</p>
+          <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+            <i class="bi bi-instagram fs-4"></i>
+            <i class="bi bi-facebook fs-4"></i>
+            <i class="bi bi-twitter-x fs-4"></i>
+          </div>
+        </div>
       </div>
-    </footer>
+
+      <hr />
+
+      <p class="text-center mb-0">© 2026 PipElectronics</p>
+    </div>
+  </footer>
