@@ -1,43 +1,43 @@
-:root{
+:root {
     --color-primario: #f0320a;
-    --color-secundario: #1A1A1A;
-    --color-terciario: #2E2E2E;
-    --color-neutral: #0A0A0A;
-
+    --color-secundario: #1a1a1a;
+    --color-terciario: #2e2e2e;
+    --color-neutral: #0a0a0a;
 
     --color-fuente-primario: #d1aca3;
-    --color-fuente-secundario: #d1aca3; 
-
+    --color-fuente-secundario: #d1aca3;
 }
 
-
-
-.color-fondo{
-    background-color: var(--color-secundario)
-}  
-.color-marcas{
-    background-color: var(--color-terciario)
-}
-.color-fuente-primario{
-    color: var(--color-fuente-primario)
-}
-.color-fuente-secundario{
-    color: var(--color-fuente-primario)
-}
-.color-principal{
-    color:var(--color-primario)
-}
-.fondo-boton{
-      background-color: #f0320a;
+.color-fondo {
+    background-color: var(--color-secundario);
 }
 
-.boton-link:focus, .boton-link:hover {
-
-color: var(--color-primario) !important;
+.color-marcas {
+    background-color: var(--color-terciario);
 }
 
-
-.logo:focus, .logo:hover{
-    color: var(--color-primario)!important;
+.color-fuente-primario {
+    color: var(--color-fuente-primario);
 }
 
+.color-fuente-secundario {
+    color: var(--color-fuente-primario);
+}
+
+.color-principal {
+    color: var(--color-primario);
+}
+
+.fondo-boton {
+    background-color: #f0320a;
+}
+
+.boton-link:focus,
+.boton-link:hover {
+    color: var(--color-primario) !important;
+}
+
+.logo:focus,
+.logo:hover {
+    color: var(--color-primario) !important;
+}
