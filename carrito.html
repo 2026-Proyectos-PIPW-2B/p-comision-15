@@ -6,33 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+ <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 
 
-<body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="Inicio.html"> PipElectronics </a>
-      <div class="align-items-end">
-        <button class="btn btn-danger" type="button">
-          <i class="bi bi-person-circle"></i>
+<body class="d-flex flex-column min-vh-100 color-fondo">
+ <div class="container-fluid p-0">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <div class="container-fluid mx-3">
+        <a class="logo navbar-brand color-principal fw-bold" href="Inicio.html"> PipElectronics </a>
+         <div class="align-items-center">
+              <a class="boton-link nav-link color-fuente-primario  fw-bold font-size-2" href="catalogo.html">Productos</a>
+      </div>
+        <div class="align-items-end">
+        <button class="boton-link btn color-principal " type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-person-circle"></i>
         </button>
-        <button type="button" class="btn btn-danger">
+        <a href="carrito.html">
+        <button type="button" class="boton-link btn color-principal">
           <i class="bi bi-cart"></i>
         </button>
-      </div>
-    </div>
+        </a>
+        </div>
+      </div>    
   </nav>
+  <div class="container">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content rounded-4 shadow">
+                 <div class="modal-header p-5 pb-4 border-bottom-0">
+                   <h1 class="fw-bold mb-0 fs-2">Iniciar Sesion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div>
+                     <div class="modal-body p-5 pt-0">
+                        <form class="">
+                         <div class="form-floating mb-3">
+                           <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Usuario1">
+                           <label for="floatingInput">Nombre de usuario</label>
+                          </div>
+                            <div class="form-floating mb-3">
+                               <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+                               <label for="floatingPassword">Contraseña</label>
+                            </div>
+                                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" type="submit">Conectarse</button>
+                        </form>
+                    </div>
+                </div>
+          </div>
+       </div>
+      </div>
+  </div>
+  
   <main class="container flex-grow-1">
     <div class="container px-5 py-2" id="featured-3">
-      <h1 class="pb-2 border-bottom">Tu carrito:</h1>
+      <h1 class="pb-2 border-bottom color-principal">Tu carrito:</h1>
       <div class="px-2 pt-2 my-2 text-center border-bottom">
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Todavia no has agregado ningun producto a tu carrito</p>
+          <p class="lead mb-4 color-fuente-primario">Todavia no has agregado ningun producto a tu carrito</p>
           <div class="d-grid  d-sm-flex justify-content-sm-center">
             <a href="catalogo.html">
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Volver al catalogo</button>
+              <button type="button" class="btn btn-outline-secondary fondo-boton btn-lg px-4">Volver al catalogo</button>
             </a>
           </div>
           <img src="img/Carrito-compras.png" class="img-fluid ">
@@ -40,41 +73,65 @@
       </div>
     </div>
   </main>
-  <footer id="footer" class="bg-dark text-white py-4">
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <div class="col-md-4 mb-3">
-          <h5>PipElectronics</h5>
-          <p>La tienda electronica mas completa del pais</p>
-        </div>
-        <div class="col-md-4 mb-3">
-          <h5>Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="inicio.html" class="text-white text-decoration-none">Inicio</a>
-            </li>
-            <li>
-              <a href="producto.html" class="text-white text-decoration-none">Productos</a>
-            </li>
-            <li>
-              <a href="carrito.html" class="text-white text-decoration-none">Carrito</a>
-            </li>
-          </ul>
-        </div>
+      <footer id="footer" class="color-fondo text-white py-4 px-4 px-md-0">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>PipElectronics</h5>
 
-        <div class="col-md-4">
-          <h5>Redes</h5>
+              <p>La tienda electronica mas completa del pais</p>
+            </div>
+          </div>
 
-          <div class="d-flex gap-3 justify-content-center justify-content-md-start">
-            <i class="bi bi-instagram fs-4"></i>
-            <i class="bi bi-facebook fs-4"></i>
-            <i class="bi bi-twitter-x fs-4"></i>
+          <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>Links</h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="inicio" class="text-white text-decoration-none"
+                    >Inicio</a                  >
+                </li>
+                <li>
+                  <a href="catalogo.html" class="text-white text-decoration-none">
+                    Productos</a
+                  >
+                </li>
+                <li>
+                  <a href="carrito.html" class="text-white text-decoration-none"
+                    >Carrito</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="administrador.html"
+                    class="text-white text-decoration-none"
+                    >administrador</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>Redes</h5>
+
+              <div class="d-flex gap-3 justify-content-md-start">
+                <i class="bi bi-instagram fs-4"></i>
+                <i class="bi bi-facebook fs-4"></i>
+                <i class="bi bi-twitter-x fs-4"></i>
+              </div>
+            </div>
           </div>
         </div>
+
+        <hr />
+
+        <p class="text-center mb-0">© 2026 PipElectronics</p>
       </div>
-
-      <hr />
-
-      <p class="text-center mb-0">© 2026 PipElectronics</p>
-    </div>
-  </footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

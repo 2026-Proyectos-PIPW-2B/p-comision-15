@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
   <title>PipElectronics</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
- <div class="container-fluid p-0">
+  <div class="container-fluid p-0">
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <div class="container-fluid mx-3">
         <a class="logo navbar-brand color-principal fw-bold" href="Inicio.html"> PipElectronics </a>
@@ -56,11 +55,11 @@
       </div>
   </div>
 
-  <main class="color-fondo container-fluid flex-grow-1 p-0">
-    <div class="px-4 pt-5 my-5 text-center">
-      <div class="text-center px-4 pt-5 rounded-4 container ">
-        <h1 class="color-principal display-4 fw-bold ">PIPELECTRONICS</h1>
-        <p class="color-fuente-primario lead mb-4 fw-bold">
+  <main class="container-fluid flex-grow-1 color-fondo p-0" >
+    <div class="px-4 pt-5 my-5 text-center ">
+      <div class="text-center px-4 pt-5 rounded-4 container">
+        <p class="color-principal display-4 fw-bold fs-1 ">PIPELECTRONICS</p>
+        <p class="color-fuente-primario lead mb-4 fw-bold ">
           Ofrecemos el mejor catalogo del mercado. ¿Que esperas para
           comprobarlo?
         </p>
@@ -68,22 +67,22 @@
       <div class="col-lg-6 mx-auto">
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
           <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="2000">
+              <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000">
                 <img src="img/monitor-asus.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
                 <div class="carousel-caption d-none d-md-block color-fuente-primario text-center bg-dark bg-opacity-75 px-4 py-3 rounded-3">
                   <h3 class="mb-1 fs-4">Asus Rog Swift</h3>
                   <p class="mb-0 small" >Una obra maestra diseñada para gamers y profesionales.</p>
                 </div>
               </div>
-              <div class="carousel-item " data-bs-interval="2000">
+              <div class="carousel-item " data-bs-interval="5000">
                 <img src="img/Nvidia-5090.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
                 <div class="carousel-caption d-none d-md-block color-fuente-primario text-start text-center bg-dark bg-opacity-75 px-4 py-4 rounded-3">
                   <h3 class="mb-1 fs-4">GeForce RTX 5090</h3>
                   <p class="mb-0 small" >Velocidad suprema. Visuales superiores.<p>
                 </div>
               </div>
-              <div class="carousel-item " data-bs-interval="2000">
+              <div class="carousel-item " data-bs-interval="5000">
                 <img src="img/Iphone17-promax.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
                 <div class="carousel-caption d-none d-md-block text-center bg-dark color-fuente-primario bg-opacity-75 px-4 py-3 rounded-3">
                   <h3 class="mb-1 fs-4">Iphone 17</h3>
@@ -105,35 +104,47 @@
         </div>
       </div>
     </div>
-    <div class="color-marcas container-fluid">
-      <div class="row">
-        <div class="px-4 pt-4 my-5 col">
-          <img src="img/Apple-logo.png" alt="" style="width: 50px; height: 60px" class="rounded mx-auto d-block" />
+    <div class="container-fluid color-marcas ">
+      <div class="row container mx-auto ">
+        <div class="px-4 my-5 col d-flex justify-content-center">
+          <div class="img-container ">
+            <img src="img/Apple-logo.png" width="140px" height="80px" alt="" class="rounded mx-auto " />
+          </div>
         </div>
-        <div class="px-4 pt-4 my-5 col">
-          <img src="img/Asus-Logo.png" alt="" style="width: 60px; height: 60px" class="rounded mx-auto d-block" />
+        <div class="px-4  my-5 col d-flex justify-content-center">
+          <div class="img-container">
+          <img src="img/Asus-Logo.png" width="140px" height="80px" alt=""  class="rounded mx-auto d-block" />
+          </div>
         </div>
-        <div class="px-4 pt-4 my-5 col">
-          <img src="img/Nvidia-logo.png" alt="" style="width: 90px; height: 60px" class="rounded mx-auto d-block" />
+        <div class="px-4  my-5 col d-flex justify-content-center">
+          <div class="img-container">
+          <img src="img/Nvidia-logo.png" width="140px" height="80px" alt="" class="rounded mx-auto d-block" />
+          </div>
         </div>
 
-        <div class="px-4 pt-4 my-5 col">
-          <img src="img/Samsung-Logo.png" alt="" style="width: 70px; height: 60px" class="rounded mx-auto d-block" />
+        <div  class="px-4  my-5 col d-flex justify-content-center">
+          <div class="img-container">
+          <img src="img/Samsung-Logo.png" width="140px" height="80px" alt="" class="rounded mx-auto d-block" />
+
+          </div>
         </div>
       </div>
     </div>
   </main>
-  <footer id="footer" class="color-fondo text-white py-4">
+  <footer id="footer" class="color-fondo text-white py-4 px-4 px-md-0">
     <div class="container">
       <div class="row text-center text-md-start">
-        <div class="col-md-4 mb-3">
-          <h5>PipElectronics</h5>
+        <div class="col-md-4  mb-3 d-flex flex-column align-items-md-center ">
+         <div class="text-start">
+           <h5>PipElectronics</h5>
 
-          <p>La tienda electronica mas completa del pais</p>
+            <p>La tienda electronica mas completa del pais</p>
+         </div>
         </div>
 
-        <div class="col-md-4 mb-3">
-          <h5>Links</h5>
+        <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center ">
+          <div class="text-start">
+            <h5>Links</h5>
 
           <ul class="list-unstyled">
             <li>
@@ -149,15 +160,18 @@
               <a href="administrador.html" class="text-white text-decoration-none">administrador</a>
             </li>
           </ul>
+          </div>
         </div>
 
-        <div class="col-md-4">
-          <h5>Redes</h5>
+        <div class="col-md-4 d-flex  flex-column align-items-md-center">
+          <div class="text-start">
+            <h5>Redes</h5>
 
-          <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+          <div class="d-flex gap-3 justify-content-md-start">
             <i class="bi bi-instagram fs-4"></i>
             <i class="bi bi-facebook fs-4"></i>
             <i class="bi bi-twitter-x fs-4"></i>
+          </div>
           </div>
         </div>
       </div>

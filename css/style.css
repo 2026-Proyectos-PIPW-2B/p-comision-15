@@ -1,43 +1,74 @@
-:root {
+:root{
     --color-primario: #f0320a;
-    --color-secundario: #1a1a1a;
-    --color-terciario: #2e2e2e;
-    --color-neutral: #0a0a0a;
+    --color-secundario: #1A1A1A;
+    --color-terciario: #2E2E2E;
+    --color-neutral: #0A0A0A;
+    --color-blanco: white;
+    --color-primario-light: #FF5634;
+    --color-gris-light: #F3F0F0;
+    --color-gris-medium: #E5E2E1;
+
 
     --color-fuente-primario: #d1aca3;
-    --color-fuente-secundario: #d1aca3;
+}
+.color-fondo{
+    background-color: var(--color-secundario)
+}  
+
+.color-fondo-gris{
+    background-color: var(--color-gris-medium);
+}
+.color-marcas{
+    background-color: var(--color-terciario)
+}
+.color-fuente-primario{
+    color: var(--color-fuente-primario)
+}
+.color-fuente-secundario{
+    color: var(--color-fuente-secundario)
+}
+.color-principal{
+    color:var(--color-primario)
 }
 
-.color-fondo {
-    background-color: var(--color-secundario);
+.fondo-boton{
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
 }
 
-.color-marcas {
-    background-color: var(--color-terciario);
+.fondo-boton:hover{
+    background-color: var(--color-primario-light );
+    color: var(--color-gris-light);
+}
+.boton-link:focus, .boton-link:hover {
+color: var(--color-primario) !important;
+}
+.boton-personalizado{
+    background-color: var();
 }
 
-.color-fuente-primario {
-    color: var(--color-fuente-primario);
+.logo:focus, .logo:hover{
+    color: var(--color-primario)!important;
 }
 
-.color-fuente-secundario {
-    color: var(--color-fuente-primario);
+.img-container{
+    width: 140px;
+    height: 80px;
 }
 
-.color-principal {
-    color: var(--color-primario);
+.img-container img{
+    object-fit: contain;
+    color: rgb(red, green, blue);
 }
 
-.fondo-boton {
-    background-color: #f0320a;
-}
 
-.boton-link:focus,
-.boton-link:hover {
-    color: var(--color-primario) !important;
+.btn-toggle::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba(240, 51, 32, 1)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
 }
-
-.logo:focus,
-.logo:hover {
-    color: var(--color-primario) !important;
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
 }
