@@ -31,11 +31,38 @@
     color:var(--color-primario)
 }
 
+.dropdown-item, .dropdown-item:active{
+   background-color: var(--color-primario-light); 
+   color: var(--color-blanco);
+
+
+}
+.dropdown-menu {
+    background-color: var(--color-primario-light);
+}
+.btn.show{
+    background-color: var(--color-primario-light);
+    color: var(--color-blanco);
+}
+
 .fondo-boton{
       background-color: var(--color-primario);
       color: var(--color-blanco);
+      
 }
-
+.btn:focus-visible{
+    background-color: var(--color-primario-light);
+    color: var(--color-gris-medium);
+}
+:not(.btn-check)+.btn:active {
+    color: var(--color-blanco);
+    background-color: var(--color-primario);
+    
+}
+.btn:first-child:active{
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
 .fondo-boton:hover{
     background-color: var(--color-primario-light );
     color: var(--color-gris-light);
@@ -50,6 +77,20 @@ color: var(--color-primario) !important;
 .logo:focus, .logo:hover{
     color: var(--color-primario)!important;
 }
+/* Stock productos  */ 
+.stock-low{
+    background-color: var(--color-primario-light);
+    color: var(--color-blanco);
+}
+.stock-medium{
+    background-color: lightblue;
+
+}
+.stock-high{
+  background-color: lightgreen;
+
+}
+
 
 .img-container{
     width: 140px;
