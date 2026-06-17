@@ -1,171 +1,134 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+     <link rel="stylesheet" href="css/style.css">
     <title>administrador</title>
-  </head>
+</head>
 
-  <body class="d-flex flex-column min-vh-100 color-marcas">
-    <div class="container-fluid p-0">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-        <div class="container-fluid mx-3">
-          <a
-            class="logo navbar-brand color-principal fw-bold"
-            href="Inicio.html"
-          >
-            PipElectronics
-          </a>
-          <div class="align-items-center">
-            <a
-              class="boton-link nav-link color-fuente-primario fw-bold font-size-2"
-              href="catalogo.html"
-              >Productos</a
-            >
-          </div>
-          <div class="align-items-end">
-            <button
-              class="boton-link btn color-principal"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              <i class="bi bi-person-circle"></i>
-            </button>
-            <a href="carrito.html">
-              <button type="button" class="boton-link btn color-principal">
-                <i class="bi bi-cart"></i>
-              </button>
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div class="container">
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content rounded-4 shadow">
-              <div class="modal-header p-5 pb-4 border-bottom-0">
-                <h1 class="fw-bold mb-0 fs-2">Iniciar Sesion</h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body p-5 pt-0">
-                <form class="">
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      id="FloatInputNombre"
-                      placeholder="Usuario1"
-                    />
-                    <label for="floatingInput">Nombre de usuario</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="password"
-                      class="form-control rounded-3"
-                      id="FloatInputContraseña"
-                      placeholder="Password"
-                    />
-                    <label for="floatingPassword">Contraseña</label>
-                  </div>
-                  <button
-                    class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton"
-                    id="botonSesion"
-                    type="submit"
-                  >
-                    Conectarse
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+<body class="d-flex flex-column min-vh-100 color-marcas">
+  <div class="container-fluid p-0">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <div class="container-fluid mx-3">
+        <a class="logo navbar-brand color-principal fw-bold" href="Inicio.html"> PipElectronics </a>
+         <div class="align-items-center">
+              <a class="boton-link nav-link color-fuente-primario  fw-bold font-size-2" href="catalogo.html">Productos</a>
       </div>
-    </div>
-    <main class="container flex-grow-1">
+        <div class="align-items-end">
+        <button class="boton-link btn color-principal " type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-person-circle"></i>
+        </button>
+        <a href="carrito.html">
+        <button type="button" class="boton-link btn color-principal">
+          <i class="bi bi-cart"></i>
+        </button>
+        </a>
+        </div>
+      </div>    
+  </nav>
+  <div class="container">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content rounded-4 shadow">
+                 <div class="modal-header p-5 pb-4 border-bottom-0">
+                   <h1 class="fw-bold mb-0 fs-2">Iniciar Sesion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div>
+                     <div class="modal-body p-5 pt-0">
+                        <form class="">
+                         <div class="form-floating mb-3">
+                           <input type="text" class="form-control rounded-3" id="FloatInputNombre" placeholder="Usuario1">
+                           <label for="floatingInput">Nombre de usuario</label>
+                          </div>
+                            <div class="form-floating mb-3">
+                               <input type="password" class="form-control rounded-3" id="FloatInputContraseña" placeholder="Password">
+                               <label for="floatingPassword">Contraseña</label>
+                            </div>
+                             
+                                <button class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton" id="botonSesion" type="submit">Conectarse</button>
+                        </form>
+                    </div>
+                </div>
+          </div>
+       </div>
+      </div>
+  </div>
+  <main class="container flex-grow-1">
+      
       <div class="container py-5">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <div class="card shadow color-fondo-gris">
-              <div class="card-body p-4">
-                <h1 class="card-title text-center mb-4 colorTexto">
-                  Crear usuarios
-                </h1>
-                <form id="formRegistro">
-                  <div class="mb-3">
-                    <label for="userInput">Nombre de usuario</label>
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      placeholder="Debe tener mas de 4 letras"
-                      id="inputCrearNombre"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="usarPassword">Contraseña</label>
-                    <input
-                      type="password"
-                      class="form-control rounded-3"
-                      id="inputCrearContraseña"
-                      placeholder="Debe tener entre 4 a 8 caracteres"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <button
-                      class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton"
-                      type="submit"
-                      id="botonValidar"
-                    >
-                      Crear Usuario
-                    </button>
-                  </div>
-                </form>
-                <div id="divValidacion"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container color-fondo-gris">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow color-fondo-gris">
+                    <div class="card-body p-4">
+                        <h1 class="card-title text-center mb-4 colorTexto">
+                            Crear usuarios
+                        </h1>
+                        <form id="formRegistro">
+                          <div class="mb-3">
+                            <label for="userInput">Nombre de usuario</label>
+                             <input type="text" class="form-control rounded-3"placeholder="Debe tener mas de 4 letras" id="inputCrearNombre">                          
+                          </div>
+                            <div class="mb-3">
+                               <label for="usarPassword">Contraseña</label>
+                               <input type="password" class="form-control rounded-3" id="inputCrearContraseña" placeholder="Debe tener entre 4 a 8 caracteres">
+                            </div>
+                            <div class="row text-center">
+                            <div class="mb-3 col-6 ">
+                               <label for="inputEstado">Estado del usuario</label>
+                                <select name="categoria" id="inputEstado">
+                                  <option value="seleccionar" disabled selected>
+                                    Seleccione un estado
+                                  </option>
+                                  <option value="Habilitado">Habilitado</option>
+                                  <option value="Deshabilitado">Deshabilitado</option> 
+                                </select>
+                          </div>
+                           <div class="mb-3 col-6">
+                            <label for="inputRol">Rol del usuario</label>
+                              <select name="categoria" id="inputRol">
+                                <option value="seleccionar" disabled selected>
+                                  Seleccione una opcion
+                                </option>
+                                <option value="admin">administrador</option>
+                                <option value="usuario">Usuario final</option>
+                              </select>
+                           
+                          </div>
+                          </div>
+                            <div class="mb-3">
+                              <button class="w-100 mb-2 btn btn-lg rounded-3  fondo-boton" type="submit" id="botonValidar" >Crear Usuario</button>
+                            </div>   
+                        </form>
+                        <div id="divValidacion"></div>
+                    </div>  
+                </div>    
+            </div>  
+        </div>  
+      </div>  
+        <div class="container color-fondo-gris">
         <h2 class="color-principal">Listado de usuarios</h2>
         <form action="">
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Contraseña</th>
-                <th>Estado</th>
-                <th>rol</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="bodyTabla"></tbody>
-          </table>
-        </form>
-      </div>
-    </main>
-    <footer id="footer" class="color-fondo text-white py-4">
+      <table class="table table-bordered  table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Estado</th>
+            <th>rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="bodyTabla"></tbody>
+      </table>
+      </form>
+      </div>  
+
+  </main>
+  <footer id="footer" class="color-fondo text-white py-4">
       <div class="container">
         <div class="row text-center text-md-start">
           <div class="col-md-4 mb-3">
@@ -176,19 +139,13 @@
             <h5>Links</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="inicio.html" class="text-white text-decoration-none"
-                  >Inicio</a
-                >
+                <a href="inicio.html" class="text-white text-decoration-none">Inicio</a>
               </li>
               <li>
-                <a href="catalogo.html" class="text-white text-decoration-none"
-                  >Productos</a
-                >
+                <a href="catalogo.html" class="text-white text-decoration-none">Productos</a>
               </li>
               <li>
-                <a href="carrito.html" class="text-white text-decoration-none"
-                  >Carrito</a
-                >
+                <a href="carrito.html" class="text-white text-decoration-none">Carrito</a>
               </li>
             </ul>
           </div>
@@ -207,9 +164,9 @@
         <hr />
         <p class="text-center mb-0">© 2026 PipElectronics</p>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
-    <script src="js/usuarios.js"></script>
-  </body>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+  <script src="js/usuarios.js"></script>
+</body>
 </html>
