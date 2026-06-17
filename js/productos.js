@@ -4,16 +4,13 @@
 
 
 function crearProducto(nombreProducto, categoriaProducto, marcaProducto, precioProducto, stockProducto) {
-  let id = 1;
   const producto = {
-    nombre: nombreUsuario,
+    nombre: nombreProducto,
     categoria: categoriaProducto,
     marca: marcaProducto,
     precio: precioProducto,
     stock: stockProducto,
-    id: id,
   };
-  id++;
   return producto;
 }
 
@@ -31,6 +28,11 @@ function validarNuevoProducto(){
     const stock = newStock.value
 
     const validacion = validarProducto()
+
+    if(validacion.resultado){
+        agregarProductoLocalStorage(crearProducto(nombre, categoria, marca, precio, stock))
+    }
+
 }
 
 function validarProducto(nombreProducto, categoriaProducto, marcaProducto, precioProducto, stockProducto){
@@ -63,8 +65,8 @@ function validarProducto(nombreProducto, categoriaProducto, marcaProducto, preci
     return prod
 }
 
-function agregarProdcutoLocalStorage(usuario) {
+function agregarProductoLocalStorage(producto) {
   const productosString = JSON.parse(localStorage.getItem("productos")) || [];
-  usuariosString.push(producto);
+  productosString.push(producto);
   localStorage.setItem("productos", JSON.stringify(productosString));
 }

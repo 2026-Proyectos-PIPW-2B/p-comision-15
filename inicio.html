@@ -1,188 +1,316 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-  <title>PipElectronics</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <title>PipElectronics</title>
+  </head>
 
-<body class="d-flex flex-column min-vh-100">
-  <div class="container-fluid p-0">
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-      <div class="container-fluid mx-3">
-        <a class="logo navbar-brand color-principal fw-bold" href="Inicio.html"> PipElectronics </a>
-         <div class="align-items-center">
-              <a class="boton-link nav-link color-fuente-primario  fw-bold font-size-2" href="catalogo.html">Productos</a>
-      </div>
-        <div class="align-items-end">
-        <button class="boton-link btn color-principal " type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="bi bi-person-circle"></i>
-        </button>
-        <a href="carrito.html">
-        <button type="button" class="boton-link btn color-principal">
-          <i class="bi bi-cart"></i>
-        </button>
-        </a>
-        </div>
-      </div>    
-  </nav>
-  <div class="container">
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-               <div class="modal-content rounded-4 shadow">
-                 <div class="modal-header p-5 pb-4 border-bottom-0">
-                   <h1 class="fw-bold mb-0 fs-2">Iniciar Sesion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div>
-                     <div class="modal-body p-5 pt-0">
-                        <form class="">
-                         <div class="form-floating mb-3">
-                           <input type="text" class="form-control rounded-3" id="floatInputNombre" placeholder="Usuario1">
-                           <label for="floatingInput">Nombre de usuario</label>
-                          </div>
-                            <div class="form-floating mb-3">
-                               <input type="password" class="form-control rounded-3" id="floatInputContraseña" placeholder="Password">
-                               <label for="floatingPassword">Contraseña</label>
-                            </div>
-                                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" type="submit">Conectarse</button>
-                        </form>
-                    </div>
-                </div>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid mx-3">
+          <a
+            class="logo navbar-brand color-principal fw-bold"
+            href="Inicio.html"
+          >
+            PipElectronics
+          </a>
+          <div class="align-items-center">
+            <a
+              class="boton-link nav-link color-fuente-primario fw-bold font-size-2"
+              href="catalogo.html"
+              >Productos</a
+            >
           </div>
-       </div>
-      </div>
-  </div>
+          <div class="align-items-end">
+            <button
+              class="boton-link btn color-principal"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i class="bi bi-person-circle"></i>
+            </button>
+            <a href="carrito.html">
+              <button type="button" class="boton-link btn color-principal">
+                <i class="bi bi-cart"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+              <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Iniciar Sesion</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body p-5 pt-0">
+                <form class="">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control rounded-3"
+                      id="FloatInputNombre"
+                      placeholder="Usuario1"
+                    />
+                    <label for="floatingInput">Nombre de usuario</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      class="form-control rounded-3"
+                      id="FloatInputContraseña"
+                      placeholder="Password"
+                    />
+                    <label for="floatingPassword">Contraseña</label>
+                  </div>
 
-  <main class="container-fluid flex-grow-1 color-fondo p-0" >
-    <div class="px-4 pt-5 my-5 text-center ">
-      <div class="text-center px-4 pt-5 rounded-4 container">
-        <p class="color-principal display-4 fw-bold fs-1 ">PIPELECTRONICS</p>
-        <p class="color-fuente-primario lead mb-4 fw-bold ">
-          Ofrecemos el mejor catalogo del mercado. ¿Que esperas para
-          comprobarlo?
-        </p>
-      </div>
-      <div class="col-lg-6 mx-auto">
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-          <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-              <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="5000">
-                <img src="img/monitor-asus.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
-                <div class="carousel-caption d-none d-md-block color-fuente-primario text-center bg-dark bg-opacity-75 px-4 py-3 rounded-3">
-                  <h3 class="mb-1 fs-4">Asus Rog Swift</h3>
-                  <p class="mb-0 small" >Una obra maestra diseñada para gamers y profesionales.</p>
-                </div>
-              </div>
-              <div class="carousel-item " data-bs-interval="5000">
-                <img src="img/Nvidia-5090.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
-                <div class="carousel-caption d-none d-md-block color-fuente-primario text-start text-center bg-dark bg-opacity-75 px-4 py-4 rounded-3">
-                  <h3 class="mb-1 fs-4">GeForce RTX 5090</h3>
-                  <p class="mb-0 small" >Velocidad suprema. Visuales superiores.<p>
-                </div>
-              </div>
-              <div class="carousel-item " data-bs-interval="5000">
-                <img src="img/Iphone17-promax.png" style="width: 500px" class="d-block w-100 rounded" alt="..." />
-                <div class="carousel-caption d-none d-md-block text-center bg-dark color-fuente-primario bg-opacity-75 px-4 py-3 rounded-3">
-                  <h3 class="mb-1 fs-4">Iphone 17</h3>
-                  <p class="mb-0 small" >Un monumento al rendimiento.</p>
-                </div>
+                  <button
+                    class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton"
+                    id="botonSesion"
+                    type="button"
+                  >
+                    Conectarse
+                  </button>
+                </form>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid color-marcas ">
-      <div class="row container mx-auto ">
-        <div class="px-4 my-5 col d-flex justify-content-center">
-          <div class="img-container ">
-            <img src="img/Apple-logo.png" width="140px" height="80px" alt="" class="rounded mx-auto " />
-          </div>
-        </div>
-        <div class="px-4  my-5 col d-flex justify-content-center">
-          <div class="img-container">
-          <img src="img/Asus-Logo.png" width="140px" height="80px" alt=""  class="rounded mx-auto d-block" />
-          </div>
-        </div>
-        <div class="px-4  my-5 col d-flex justify-content-center">
-          <div class="img-container">
-          <img src="img/Nvidia-logo.png" width="140px" height="80px" alt="" class="rounded mx-auto d-block" />
-          </div>
-        </div>
 
-        <div  class="px-4  my-5 col d-flex justify-content-center">
-          <div class="img-container">
-          <img src="img/Samsung-Logo.png" width="140px" height="80px" alt="" class="rounded mx-auto d-block" />
-
+    <main class="container-fluid flex-grow-1 color-fondo p-0">
+      <div class="px-4 pt-5 my-5 text-center">
+        <div class="text-center px-4 pt-5 rounded-4 container">
+          <p class="color-principal display-4 fw-bold fs-1">PIPELECTRONICS</p>
+          <p class="color-fuente-primario lead mb-4 fw-bold">
+            Ofrecemos el mejor catalogo del mercado. ¿Que esperas para
+            comprobarlo?
+          </p>
+        </div>
+        <div class="col-lg-6 mx-auto">
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <div
+              id="carouselExampleFade"
+              class="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                  <img
+                    src="img/monitor-asus.png"
+                    style="width: 500px"
+                    class="d-block w-100 rounded"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block color-fuente-primario text-center bg-dark bg-opacity-75 px-4 py-3 rounded-3"
+                  >
+                    <h3 class="mb-1 fs-4">Asus Rog Swift</h3>
+                    <p class="mb-0 small">
+                      Una obra maestra diseñada para gamers y profesionales.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img
+                    src="img/Nvidia-5090.png"
+                    style="width: 500px"
+                    class="d-block w-100 rounded"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block color-fuente-primario text-start text-center bg-dark bg-opacity-75 px-4 py-4 rounded-3"
+                  >
+                    <h3 class="mb-1 fs-4">GeForce RTX 5090</h3>
+                    <p class="mb-0 small">
+                      Velocidad suprema. Visuales superiores.
+                    </p>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                  <img
+                    src="img/Iphone17-promax.png"
+                    style="width: 500px"
+                    class="d-block w-100 rounded"
+                    alt="..."
+                  />
+                  <div
+                    class="carousel-caption d-none d-md-block text-center bg-dark color-fuente-primario bg-opacity-75 px-4 py-3 rounded-3"
+                  >
+                    <h3 class="mb-1 fs-4">Iphone 17</h3>
+                    <p class="mb-0 small">Un monumento al rendimiento.</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleFade"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleFade"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-  <footer id="footer" class="color-fondo text-white py-4 px-4 px-md-0">
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <div class="col-md-4  mb-3 d-flex flex-column align-items-md-center ">
-         <div class="text-start">
-           <h5>PipElectronics</h5>
-
-            <p>La tienda electronica mas completa del pais</p>
-         </div>
-        </div>
-
-        <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center ">
-          <div class="text-start">
-            <h5>Links</h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <a href="inicio" class="text-white text-decoration-none">Inicio</a>
-            </li>
-            <li>
-              <a href="catalogo.html" class="text-white text-decoration-none">Productos</a>
-            </li>
-            <li>
-              <a href="carrito.html" class="text-white text-decoration-none">Carrito</a>
-            </li>
-            <li>
-              <a href="administrador.html" class="text-white text-decoration-none">administrador</a>
-            </li>
-          </ul>
+      <div class="container-fluid color-marcas">
+        <div class="row container mx-auto">
+          <div class="px-4 my-5 col d-flex justify-content-center">
+            <div class="img-container">
+              <img
+                src="img/Apple-logo.png"
+                width="140px"
+                height="80px"
+                alt=""
+                class="rounded mx-auto"
+              />
+            </div>
           </div>
-        </div>
-
-        <div class="col-md-4 d-flex  flex-column align-items-md-center">
-          <div class="text-start">
-            <h5>Redes</h5>
-
-          <div class="d-flex gap-3 justify-content-md-start">
-            <i class="bi bi-instagram fs-4"></i>
-            <i class="bi bi-facebook fs-4"></i>
-            <i class="bi bi-twitter-x fs-4"></i>
+          <div class="px-4 my-5 col d-flex justify-content-center">
+            <div class="img-container">
+              <img
+                src="img/Asus-Logo.png"
+                width="140px"
+                height="80px"
+                alt=""
+                class="rounded mx-auto d-block"
+              />
+            </div>
           </div>
+          <div class="px-4 my-5 col d-flex justify-content-center">
+            <div class="img-container">
+              <img
+                src="img/Nvidia-logo.png"
+                width="140px"
+                height="80px"
+                alt=""
+                class="rounded mx-auto d-block"
+              />
+            </div>
+          </div>
+
+          <div class="px-4 my-5 col d-flex justify-content-center">
+            <div class="img-container">
+              <img
+                src="img/Samsung-Logo.png"
+                width="140px"
+                height="80px"
+                alt=""
+                class="rounded mx-auto d-block"
+              />
+            </div>
           </div>
         </div>
       </div>
+    </main>
+    <footer id="footer" class="color-fondo text-white py-4 px-4 px-md-0">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>PipElectronics</h5>
 
-      <hr />
+              <p>La tienda electronica mas completa del pais</p>
+            </div>
+          </div>
 
-      <p class="text-center mb-0">© 2026 PipElectronics</p>
-    </div>
-  </footer>
+          <div class="col-md-4 mb-3 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>Links</h5>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="inicio" class="text-white text-decoration-none"
+                    >Inicio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="catalogo.html"
+                    class="text-white text-decoration-none"
+                    >Productos</a
+                  >
+                </li>
+                <li>
+                  <a href="carrito.html" class="text-white text-decoration-none"
+                    >Carrito</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="administrador.html"
+                    class="text-white text-decoration-none"
+                    >administrador</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="col-md-4 d-flex flex-column align-items-md-center">
+            <div class="text-start">
+              <h5>Redes</h5>
+
+              <div class="d-flex gap-3 justify-content-md-start">
+                <i class="bi bi-instagram fs-4"></i>
+                <i class="bi bi-facebook fs-4"></i>
+                <i class="bi bi-twitter-x fs-4"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <p class="text-center mb-0">© 2026 PipElectronics</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/usuarios.js"></script>
+  </body>
 </html>
