@@ -1,26 +1,17 @@
 let bodyTabla;
 window.addEventListener("load", function () {
   bodyTabla = document.getElementById("bodyTabla");
-  //localStorage.clear();
   inicializacion();
   mostrarMovimiento();
 });
 function inicializacion() {
-  const botonValidar = document.getElementById("botonValidar");
-  const botonSesion = document.getElementById("botonSesion");
   const botonEditar = document.getElementById("botonEditar");
-  if (botonValidar) {
-    botonValidar.addEventListener("click", validarDatos);
-  }
-  if (botonSesion) {
-    botonSesion.addEventListener("click", inicioSesion);
-  }
   if (botonEditar) {
     botonEditar.addEventListener("click", editarUsuario());
   }
 }
 
-function validarDatos() {
+export function validarDatos() {
   const nombreCrear = document.getElementById("inputCrearNombre");
   const contraseñaCrear = document.getElementById("inputCrearContraseña");
   const inputEstado = document.getElementById("inputEstado");
