@@ -1,7 +1,7 @@
+import { obtener } from "../storage/storage";
 
 
-
-
+const PRODUCTO_KEY = "producto"
 
 function crearProducto(nombreProducto, categoriaProducto, marcaProducto, precioProducto, stockProducto) {
   const producto = {
@@ -10,6 +10,7 @@ function crearProducto(nombreProducto, categoriaProducto, marcaProducto, precioP
     marca: marcaProducto,
     precio: precioProducto,
     stock: stockProducto,
+    carrito : []
   };
   return producto;
 }
@@ -32,7 +33,6 @@ function validarNuevoProducto(){
     if(validacion.resultado){
         agregarProductoLocalStorage(crearProducto(nombre, categoria, marca, precio, stock))
     }
-
 }
 
 function validarProducto(nombreProducto, categoriaProducto, marcaProducto, precioProducto, stockProducto){
@@ -69,4 +69,11 @@ function agregarProductoLocalStorage(producto) {
   const productosString = JSON.parse(localStorage.getItem("productos")) || [];
   productosString.push(producto);
   localStorage.setItem("productos", JSON.stringify(productosString));
+
+    const productos = obtener(PRODUCTO_KEY) || []
+    productos.push(producto)
+    guardar("productos", productos)
+    obtener(productos)
+
+
 }
