@@ -1,8 +1,8 @@
-import{guardar, obtener, eliminarTodo} from '../storage/storage.js'
+import{guardar, obtener, eliminarTodo, iniciarConteoSesion, obtenerSesion} from './gestorStorage.js'
 
+const usuario_sesion = 'usuario'
+const admin_sesion = 'admin'
 const USUARIO_KEY="usuarios";
-const CIERRE_SESION = 5000
-// 300000= 5min
  
 export function validarDatos(nombre, contraseña, estado, rol) {
   const divValidacion = document.getElementById("divValidacion");
@@ -47,8 +47,6 @@ function crearUsuario(nombreUsuario, contraseña, estado, rol) {
 
 export function inicioSesion(nombre, contraseña, urlActual) {
   let encontrado = false;
-  
-
   const usuariosDelArray = obtener(USUARIO_KEY)
 
   for (let i = 0; i <= usuariosDelArray.length - 1; i++) {
@@ -56,7 +54,7 @@ export function inicioSesion(nombre, contraseña, urlActual) {
       nombre === usuariosDelArray[i].nombre &&
       contraseña === usuariosDelArray[i].contraseña
     ) {               
-       verificarAdminYRedirigir(usuariosDelArray[i], 'admProductos.html')
+       verificarAdminYRedirigir(usuariosDelArray[i], 'admUsuarios.html')
       encontrado = true;
       break;
     }else{
@@ -65,8 +63,22 @@ export function inicioSesion(nombre, contraseña, urlActual) {
   }
   encontrado = false;
 }
+
 function verificarAdminYRedirigir(usuario, urlDestino) {
-  if (usuario.rol === "admin") {
+  if (usuario.rol === admin_sesion) {
+    iniciarConteoSesion(admin_sesion)
     window.location.href = urlDestino;
+  }else{
+    iniciarConteoSesion(usuario_sesion)
+
   }
+}
+
+export function verificarSesion(){
+  let logueado = true;
+  const sesionIniciada = obtenerSesion('sesion')
+  if (!sesionIniciada){
+    logueado = false
+  }
+  return logueado;
 }

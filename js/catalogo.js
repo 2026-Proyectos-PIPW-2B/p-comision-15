@@ -1,16 +1,14 @@
+import {inicioSesion, verificarSesion } from './modulos/gestorUsuarios.js'
 
-import {inicioSesion } from './usuarios.js'
+const urlActual = 'catalogo.html';
+window.addEventListener('DOMContentLoaded', inicializar)
 
-const urlActual = 'inicio.html'
-
-inicializacion()
-
-
-function inicializacion(){
-     const botonSesion = document.getElementById("botonSesion");
-      if (botonSesion) {
-    botonSesion.addEventListener("click", obtenerDatos);
+function inicializar(){
+     iniciarInputs()
   }
+function iniciarInputs(){
+  const botonSesion = document.getElementById("botonSesion");
+    botonSesion.addEventListener("click", obtenerDatos);
 }
 
 function obtenerDatos(){
@@ -20,11 +18,9 @@ function obtenerDatos(){
   if (validator.isEmpty(nombreUsuario) || validator.isEmpty(contraseñaUsuario)) {
      mostrarError("Todos los campos son obligatorios.");
         return;
-
-        }
+    }
   inicioSesion(nombreUsuario, contraseñaUsuario, urlActual)
     }
-
 
 function mostrarError(mensaje) {
     document.getElementById('mensajesError').textContent = mensaje;

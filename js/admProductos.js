@@ -4,17 +4,7 @@ import {
 } from "./modulos/gestorProductos.js";
 
 const tablaBody = document.getElementById("bodyTabla");
-const inputNombre = document.getElementById("inputNombre");
-const inputCategoria = document.getElementById("inputCategoria");
-const inputMarca = document.getElementById("inputMarca");
-const inputPrecio = document.getElementById("inputPrecio");
-const inputStock = document.getElementById("inputStock");
 
-const nombreProducto = inputNombre.value;
-const categoriaProducto = inputCategoria.value;
-const marcaProducto = inputMarca.value;
-const precioProducto = inputPrecio.value;
-const stockProducto = inputStock.value;
 
 window.addEventListener("DOMContentLoaded", inicializar);
 
@@ -38,6 +28,19 @@ function listarProductos() {
 }
 
 function crearProducto() {
+const inputNombre = document.getElementById("inputNombre");
+const inputCategoria = document.getElementById("inputCategoria");
+const inputMarca = document.getElementById("inputMarca");
+const inputPrecio = document.getElementById("inputPrecio");
+const inputStock = document.getElementById("inputStock");
+
+
+const nombreProducto = inputNombre.value;
+const categoriaProducto = inputCategoria.value;
+const marcaProducto = inputMarca.value;
+const precioProducto = inputPrecio.value;
+const stockProducto = inputStock.value;
+
 
   let condiciones = validarForm(
     nombreProducto,
@@ -54,7 +57,6 @@ function crearProducto() {
       precioProducto,
       stockProducto,
     );
-    mostrarRegistroExitoso();
   }
 }
 
@@ -92,10 +94,6 @@ function validarForm(
   }
 
   return resultado;
-}
-
-function mostrarRegistroExitoso() {
-  alert("Se agrego");
 }
 
 function agregarFilaEnTabla(producto) {

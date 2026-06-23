@@ -12,12 +12,11 @@ export function agregarProducto(nombre, categoria, marca, precio, stock) {
     precio: precio,
     stock: stock,
   };
-
   productos.push(producto);
   guardar(clave_productos_ls, productos);
 }
 
-export function listarProductos() {
+export function obtenerProductos() {
   const productos = obtener(clave_productos_ls) || [];
   return productos;
 }
