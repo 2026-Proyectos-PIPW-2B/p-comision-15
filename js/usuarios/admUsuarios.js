@@ -4,9 +4,7 @@ import { validarDatos as validacion } from "./usuarios.js";
 const bodyTabla = document.getElementById("bodyTabla");
 const USUARIO_KEY = "usuarios";
 inicializacion();
-mostrarMovimiento()
-
-
+mostrarMovimiento();
 
 function inicializacion() {
   const botonValidar = document.getElementById("botonValidar");
@@ -15,26 +13,22 @@ function inicializacion() {
   }
 }
 
-
-
-function creacionDeUsuarios(){
+function creacionDeUsuarios() {
   const nombreCrear = document.getElementById("inputCrearNombre");
   const contraseñaCrear = document.getElementById("inputCrearContraseña");
   const inputEstado = document.getElementById("inputEstado");
   const inputRol = document.getElementById("inputRol");
 
-
   const nombre = nombreCrear.value;
   const contraseña = contraseñaCrear.value;
   const estado = inputEstado.value;
   const rol = inputRol.value;
-  
-  validacion(nombre, contraseña, estado, rol)
+
+  validacion(nombre, contraseña, estado, rol);
 }
 
 function mostrarMovimiento() {
-
-   const usuarios = obtener(USUARIO_KEY) || [] 
+  const usuarios = obtener(USUARIO_KEY) || [];
 
   bodyTabla.innerHTML = "";
   for (let i = 0; i <= usuarios.length - 1; i++) {
@@ -55,10 +49,13 @@ function mostrarMovimiento() {
     td_2.textContent = usuarios[i].contraseña;
     td_3.textContent = usuarios[i].estado;
     td_4.textContent = usuarios[i].rol;
-    td_5.innerHTML = '<Button class="btn btn-success mx-2" id="botonHabilitar" ><i class="bi bi-check-square"></i></Button>'
-    td_6.innerHTML = '<Button class="btn btn-danger mx-2" id="botonDeshabilitar" ><i class="bi bi-ban"></i></Button>'
-    td_7.innerHTML = '</Button><Button class="btn btn-info mx-2" id="botonEditar"><i class="bi bi-clipboard-x"></i></Button>'
-   
+    td_5.innerHTML =
+      '<Button class="btn btn-success mx-2" id="botonHabilitar" ><i class="bi bi-check-square"></i></Button>';
+    td_6.innerHTML =
+      '<Button class="btn btn-danger mx-2" id="botonDeshabilitar" ><i class="bi bi-ban"></i></Button>';
+    td_7.innerHTML =
+      '</Button><Button class="btn btn-info mx-2" id="botonEditar"><i class="bi bi-clipboard-x"></i></Button>';
+
     tr.appendChild(td_id);
     tr.appendChild(td_1);
     tr.appendChild(td_2);
@@ -70,4 +67,3 @@ function mostrarMovimiento() {
     bodyTabla.appendChild(tr);
   }
 }
-
