@@ -7,10 +7,8 @@ inicializacion()
 
 
 function inicializacion(){
-     const botonSesion = document.getElementById("botonSesion");
-      if (botonSesion) {
+    const botonSesion = document.getElementById("botonSesion");
     botonSesion.addEventListener("click", obtenerDatos);
-  }
 }
 
 function obtenerDatos(){
