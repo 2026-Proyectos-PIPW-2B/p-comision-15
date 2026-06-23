@@ -53,7 +53,7 @@
                                             <option value="" disabled>Seleccionar una opcion</option>
                                             <option value="monitor">Monitor</option>
                                             <option value="perifericos">Perifericos</option>
-                                            <option value="Celulares">Celulares</option>
+                                            <option value="celulares">Celulares</option>
                                         </select>
                                     </div>
                                     <div class="mb-3 col-5">
@@ -73,7 +73,9 @@
                                         <label for="inputStock">Cantidad del stock</label>
                                         <input type="number" name="cantStock" id="inputStock"
                                             class="form-control rounded-3">
-
+                                        <div class="invalid-feedback">
+                                            
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <button class="w-100 mb-2 btn btn-lg rounded-3 text-white fondo-boton"
@@ -96,21 +98,21 @@
                                 </h3>
                                 <form id="formRegistro" class="row justify-content-between">
                                     <div class="mb-3">
-                                        <label for="editarProducto">Nombre del Producto</label>
-                                        <input type="text" class="form-control rounded-3" id="editarProducto">
+                                        <label for="inputEditarNombre">Nombre del Producto</label>
+                                        <input type="text" class="form-control rounded-3" id="inputEditarNombre">
                                     </div>
                                     <div class="mb-3 col-5">
-                                        <label for="categoriaProducto" class="form-label">Nueva categorias</label>
-                                        <select id="inputCategoria" class="form-select">
+                                        <label for="inputEditarCategoria" class="form-label">Nueva categoria</label>
+                                        <select id="inputEditarCategoria" class="form-select">
                                             <option value="">Seleccionar una opcion</option>
                                             <option value="monitor">Monitor</option>
                                             <option value="perifericos">Perifericos</option>
-                                            <option value="Celulares">Celulares</option>
+                                            <option value="celulares">Celulares</option>
                                         </select>
                                     </div>
                                     <div class="mb-3 col-5">
-                                        <label for="stockProducto">Nueva cantidad del stock</label>
-                                        <input type="number" name="cantStock" id="inputStock"
+                                        <label for="inputEditarStock">Nueva cantidad del stock</label>
+                                        <input type="number" name="cantStock" id="inputEditarStock"
                                             class="form-control rounded-3">
 
                                     </div>

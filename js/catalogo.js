@@ -9,7 +9,8 @@ function inicializar(){
 function iniciarInputs(){
   const botonSesion = document.getElementById("botonSesion");
     botonSesion.addEventListener("click", obtenerDatos);
-}
+  }
+
 
 function obtenerDatos(){
   const nombreUsuario = document.getElementById("FloatInputNombre").value
