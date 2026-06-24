@@ -1,4 +1,4 @@
-import { obtener, guardar } from "./gestorStorage.js";
+import { obtener, guardar, eliminar } from "./gestorStorage.js";
 
 const clave_productos_ls = "productos";
 
@@ -33,4 +33,10 @@ export function obtenerProducto(id){
     }
   }
   return retorno
+}
+
+export function eliminarProducto(id){
+  let producto = obtenerProducto(id)
+
+  eliminar(producto)
 }

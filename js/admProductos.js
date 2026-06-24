@@ -2,6 +2,7 @@ import {
   agregarProducto,
   obtenerProducto,
   obtenerProductos,
+  eliminarProducto,
 } from "./modulos/gestorProductos.js";
 
 const tablaBody = document.getElementById("bodyTabla");
@@ -21,8 +22,11 @@ function agregarListener() {
   const botonCrear = document.getElementById("botonCrearProducto");
   botonCrear.addEventListener("click", crearProducto);
 
-  const botonEditar = document.getElementById("botonEditarProducto")
-  botonEditar.addEventListener("click", ejecutarEditarProducto)
+  //const botonEditar = document.getElementById("btnEditarProducto")
+  //botonEditar.addEventListener("click", ejecutarEditarProducto)
+
+  //const botonEliminar = document.getElementById("btnEliminarProducto")
+  //botonEliminar.addEventListener("click", ejecutarEliminarProducto)
 }
 
 function listarProductos() {
@@ -53,12 +57,12 @@ function agregarProductoEnTabla(producto) {
   const col_5 = document.createElement("td");
   const col_6 = document.createElement("td");
 
-  const btn_editar = crearBotonAccion("editar");
+  const btn_editar = crearBotonAccion("editar","btnEditarProducto");
   btn_editar.addEventListener("click", function () {
     ejecutarEditarProducto(producto.id);
   });
 
-  const btn_eliminar = crearBotonAccion("eliminar");
+  const btn_eliminar = crearBotonAccion("eliminar", "btnEliminarProducto");
   btn_eliminar.addEventListener("click", function () {
     ejecutarEliminarProducto(producto.id);
   });
@@ -81,10 +85,13 @@ function agregarProductoEnTabla(producto) {
   tablaBody.appendChild(fila);
 }
 
-function crearBotonAccion(textoBoton) {
+function crearBotonAccion(textoBoton, id_btn) {
   const btn = document.createElement("button");
   btn.textContent = textoBoton;
   btn.setAttribute("type", "button");
+  btn.setAttribute("id", id_btn)
+  btn.setAttribute("data-bs-toggle", "modal")
+  btn.setAttribute("data-bs-target", "#modalEditar")
   return btn;
 }
 
@@ -152,8 +159,9 @@ function ejecutarEditarProducto(id) {
 function ejecutarEliminarProducto(id) {
   const producto = obtenerProducto(id)
 
-  if (producto === null){
-    
+  if (producto !== null){
+    eliminarProducto(producto)
   }
-  alert("Anda a eliminar el producto con id " + id);
+  
+  //alert("Anda a eliminar el producto con id " + id);
 }
