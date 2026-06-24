@@ -1,5 +1,5 @@
 import { obtener, eliminar, guardar, obtenerSesion } from "./modulos/gestorStorage.js";
-import { validarDatos as validacion, verificarSesion } from './modulos/gestorUsuarios.js'
+import { cerrarSesion, validarDatos as validacion, verificarSesion } from './modulos/gestorUsuarios.js'
 
 const bodyTabla = document.getElementById("bodyTabla");
 const USUARIO_KEY = "usuarios";
@@ -9,7 +9,9 @@ window.addEventListener('DOMContentLoaded', inicializar)
 function inicializar(){
       mostrarUsuariosRegistrados();
       agregarListenerBotones();
-      verificarTiempoSesion();
+      if (verificarSesion===true){
+           verificarTiempoSesion();
+          }
   }
 
 function agregarListenerBotones(){
@@ -17,8 +19,7 @@ function agregarListenerBotones(){
     const NOMBRES_USUARIOS = document.getElementById("nombresUsuarios");
 
     botonValidar.addEventListener("click", creacionDeUsuarios);
-    if(NOMBRES_USUARIOS){
-    NOMBRES_USUARIOS.addEventListener("click", ordenarAlfabeticamente); }
+    NOMBRES_USUARIOS.addEventListener("click", ordenarAlfabeticamente);
 }
 
 function creacionDeUsuarios() {
@@ -57,13 +58,36 @@ function agregarFilaEnTabla(usuario) {
   const col_6 = document.createElement("td");
   const col_7 = document.createElement("td");
 
+  
+  const btn_habilitar = crearBotonAccion('habilitar');
+  btn_habilitar.classList.add("btn-success")
+  btn_habilitar.innerHTML = '<i class="bi bi-check-square"></i>'
+  btn_habilitar.addEventListener("click", function () {
+  ejecutarHabilitarUsuario(usuario.id);
+  });
+
+  const btn_deshabilitar = crearBotonAccion("deshabilitar");
+  btn_deshabilitar.classList.add("btn-danger")
+  btn_deshabilitar.innerHTML = '<i class="bi bi-ban"></i>' 
+  btn_deshabilitar.addEventListener("click", function () {
+    ejecutarDeshabilitarUsuario(usuario.id);
+  });
+
+
+  const btn_editar = crearBotonAccion("editar");
+  btn_editar.innerHTML ='<i class="bi bi-clipboard-x"></i>'
+  btn_editar.classList.add("btn-info")
+  btn_editar.addEventListener("click", function () {
+    ejecutarEditarUsuario(usuario.id);
+  });
+
   col_1.textContent = usuario.nombre;
   col_2.textContent = usuario.contraseña;
   col_3.textContent = usuario.estado;
   col_4.textContent = usuario.rol;
-  col_5.innerHTML = '<Button class="btn btn-success mx-2" id="botonHabilitar" ><i class="bi bi-check-square"></i></Button>'
-  col_6.innerHTML = '<Button class="btn btn-danger mx-2" id="botonDeshabilitar" ><i class="bi bi-ban"></i></Button>'
-  col_7.innerHTML = '<Button class="btn btn-info mx-2" id="botonEditar"><i class="bi bi-clipboard-x"></i></Button>'
+  col_5.appendChild(btn_habilitar);
+  col_6.appendChild(btn_deshabilitar);
+  col_7.appendChild(btn_editar);
 
   fila.appendChild(col_1);
   fila.appendChild(col_2);
@@ -89,9 +113,16 @@ function verificarTiempoSesion(){
   const tiempoSesion = setInterval(verificarTiempoSesion, 5000);
 
   if ((tiempoActual > expiracion)){
-    eliminar('sesion');
-    eliminar('tiempoExpiracion');
+    cerrarSesion()
     clearInterval(tiempoSesion);
     window.location.href = '../inicio.html'
   }
+}
+
+function crearBotonAccion(textoBoton) {
+  const btn = document.createElement("button");
+  btn.classList.add('btn')
+  btn.textContent = textoBoton;
+  btn.setAttribute("type", "button");
+  return btn;
 }

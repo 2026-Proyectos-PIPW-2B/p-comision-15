@@ -1,16 +1,20 @@
 
-import {inicioSesion, verificarSesion } from './modulos/gestorUsuarios.js'
+import {inicioSesion, verificarSesion, cerrarSesion } from './modulos/gestorUsuarios.js'
 
 const urlActual = 'inicio.html'
 window.addEventListener('DOMContentLoaded', inicializar)
 
 function inicializar(){
      iniciarInputs()
+     sesionIniciada()
   }
 
 function iniciarInputs(){
+  const botonDesconexion = document.getElementById("botonDesconexion")
   const botonSesion = document.getElementById("botonSesion");
+
   botonSesion.addEventListener("click", obtenerDatos);
+  botonDesconexion.addEventListener('click',cerrarSesion)
 }
 
 function obtenerDatos(){
@@ -27,5 +31,16 @@ function mostrarError(mensaje) {
     document.getElementById('mensajesError').textContent = mensaje;
 } 
 
+
+function sesionIniciada (){
+  const iconoDesconexion = document.getElementById('iconoDesconexion');
+  const desconexion = document.getElementById('desconexion');
+
+  if (verificarSesion() === true){
+     iconoDesconexion.style.display = 'inline-block';
+  }else{
+    iconoDesconexion.style.display = 'none';
+  }
+}
 
 

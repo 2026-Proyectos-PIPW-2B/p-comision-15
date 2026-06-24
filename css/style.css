@@ -59,7 +59,7 @@
     background-color: var(--color-primario);
     
 }
-.btn:first-child:active{
+.fondo-boton.btn:first-child:active{
     background-color: var(--color-primario);
     color: var(--color-blanco);
 }

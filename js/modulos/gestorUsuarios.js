@@ -1,4 +1,4 @@
-import{guardar, obtener, eliminarTodo, iniciarConteoSesion, obtenerSesion} from './gestorStorage.js'
+import{guardar, obtener, eliminarTodo, eliminar, iniciarConteoSesion, obtenerSesion} from './gestorStorage.js'
 
 const usuario_sesion = 'usuario'
 const admin_sesion = 'admin'
@@ -81,4 +81,9 @@ export function verificarSesion(){
     logueado = false
   }
   return logueado;
+}
+export function cerrarSesion(){
+      eliminar('sesion');
+      eliminar('tiempoExpiracion');
+      window.location.href = '../inicio.html'
 }
