@@ -33,6 +33,46 @@
             </div>
         </nav>
 
+        <div class="container">
+            <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-4 shadow">
+                        <div class="modal-header p-5 pb-4 border-bottom-0">
+                            <h1 class="fw-bold mb-0 fs-2">Editar producto</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-5 pt-0">
+                            <form class="">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control rounded-3" id="inputEditarNombre"/>
+                                    <label for="inputEditarNombre">Nombre</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <label for="inputEditarCategoria">Nueva categoria</label>
+                                    <select class="form-select rounded-3" id="inputEditarCategoria">
+                                        <option value="" disabled>Seleccionar una opcion</option>
+                                        <option value="monitor">Monitor</option>
+                                        <option value="perifericos">Perifericos</option>
+                                        <option value="celulares">Celulares</option>
+                                    </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control rounded-3" id="inputEditarStock">
+                                    <label for="inputEditarStock">Nueva cantidad de stock</label>
+                                </div>
+
+                                <button class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton" id="botonEditarProducto"
+                                    type="button">
+                                    Confirmar edicion
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <main class="container flex-grow-1">
             <div class="container py-5">
                 <div class="row justify-content-center">
@@ -74,7 +114,7 @@
                                         <input type="number" name="cantStock" id="inputStock"
                                             class="form-control rounded-3">
                                         <div class="invalid-feedback">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="mb-3">

@@ -20,6 +20,9 @@ function inicializar() {
 function agregarListener() {
   const botonCrear = document.getElementById("botonCrearProducto");
   botonCrear.addEventListener("click", crearProducto);
+
+  const botonEditar = document.getElementById("botonEditarProducto")
+  botonEditar.addEventListener("click", ejecutarEditarProducto)
 }
 
 function listarProductos() {
@@ -142,8 +145,15 @@ function ejecutarEditarProducto(id) {
   inputEditarNombre.value = producto.nombre;
   inputEditarCategoria.value = producto.categoria;
   inputEditarStock.value = producto.stock;
+
+  
 }
 
 function ejecutarEliminarProducto(id) {
+  const producto = obtenerProducto(id)
+
+  if (producto === null){
+    
+  }
   alert("Anda a eliminar el producto con id " + id);
 }
