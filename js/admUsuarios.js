@@ -1,15 +1,22 @@
 import { obtener, eliminar, guardar, obtenerSesion } from "./modulos/gestorStorage.js";
-import { cerrarSesion, validarDatos as validacion, verificarSesion } from './modulos/gestorUsuarios.js'
+import { obtenerUsuario, validarDatos as validacion, verificarSesion, obtenerUsuarios, cerrarSesion, obtenerPosicion } from './modulos/gestorUsuarios.js'
 
 const bodyTabla = document.getElementById("bodyTabla");
 const USUARIO_KEY = "usuarios";
+
+const inputEditarNombre = document.getElementById("inputEditarNombre");
+const inputEditarContraseña = document.getElementById("inputEditarContraseña");
+const inputEditarEstado = document.getElementById("inputEditarEstado");
+const inputEditarRol = document.getElementById('inputEditarRol')
+let usuarioSeleccionado;
 
 window.addEventListener('DOMContentLoaded', inicializar)
 
 function inicializar(){
       mostrarUsuariosRegistrados();
       agregarListenerBotones();
-      if (verificarSesion===true){
+
+      if (verificarSesion()===true){
            verificarTiempoSesion();
           }
   }
@@ -17,9 +24,11 @@ function inicializar(){
 function agregarListenerBotones(){
     const botonValidar = document.getElementById("botonValidar");
     const NOMBRES_USUARIOS = document.getElementById("nombresUsuarios");
+     const botonEditarUsuarios = document.getElementById('botonEditarUsuarios')
 
     botonValidar.addEventListener("click", creacionDeUsuarios);
     NOMBRES_USUARIOS.addEventListener("click", ordenarAlfabeticamente);
+    botonEditarUsuarios.addEventListener('click',actualizarUsuario);
 }
 
 function creacionDeUsuarios() {
@@ -34,6 +43,17 @@ function creacionDeUsuarios() {
   const rol = inputRol.value;
 
   validacion(nombre, contraseña, estado, rol);
+}
+
+function verificarTiempoSesion(){
+  const expiracion = obtenerSesion('tiempoExpiracion')
+  const tiempoActual = new Date().getTime();
+  const tiempoSesion = setInterval(verificarTiempoSesion, 5000);
+
+  if ((tiempoActual > expiracion)){
+    cerrarSesion()
+    clearInterval(tiempoSesion);
+  }
 }
 
 function mostrarUsuariosRegistrados() {
@@ -58,25 +78,18 @@ function agregarFilaEnTabla(usuario) {
   const col_6 = document.createElement("td");
   const col_7 = document.createElement("td");
 
-  
   const btn_habilitar = crearBotonAccion('habilitar');
-  btn_habilitar.classList.add("btn-success")
-  btn_habilitar.innerHTML = '<i class="bi bi-check-square"></i>'
   btn_habilitar.addEventListener("click", function () {
   ejecutarHabilitarUsuario(usuario.id);
   });
 
   const btn_deshabilitar = crearBotonAccion("deshabilitar");
-  btn_deshabilitar.classList.add("btn-danger")
-  btn_deshabilitar.innerHTML = '<i class="bi bi-ban"></i>' 
   btn_deshabilitar.addEventListener("click", function () {
     ejecutarDeshabilitarUsuario(usuario.id);
   });
 
 
   const btn_editar = crearBotonAccion("editar");
-  btn_editar.innerHTML ='<i class="bi bi-clipboard-x"></i>'
-  btn_editar.classList.add("btn-info")
   btn_editar.addEventListener("click", function () {
     ejecutarEditarUsuario(usuario.id);
   });
@@ -99,7 +112,6 @@ function agregarFilaEnTabla(usuario) {
 
   bodyTabla.appendChild(fila);
 }
-
  function ordenarAlfabeticamente (){
   const usuarios = obtener(USUARIO_KEY);
   usuarios.sort((a, b) => a.nombre.localeCompare(b.nombre));
@@ -107,22 +119,65 @@ function agregarFilaEnTabla(usuario) {
   mostrarUsuariosRegistrados()
 }
 
-function verificarTiempoSesion(){
-  const expiracion = obtenerSesion('tiempoExpiracion')
-  const tiempoActual = new Date().getTime();
-  const tiempoSesion = setInterval(verificarTiempoSesion, 5000);
+function ejecutarEditarUsuario(id) {
+  const usuario = obtenerUsuario(id);
 
-  if ((tiempoActual > expiracion)){
-    cerrarSesion()
-    clearInterval(tiempoSesion);
-    window.location.href = '../inicio.html'
-  }
+  inputEditarNombre.value =  usuario.nombre
+  inputEditarEstado.value = usuario.estado       
+  inputEditarRol.value = usuario.rol     
+  usuarioSeleccionado = usuario
+}
+
+function actualizarUsuario(){
+const usuarios = obtener(USUARIO_KEY)
+let posicionDelUsuario = obtenerPosicion(usuarioSeleccionado.id);
+
+ usuarios[posicionDelUsuario].nombre = inputEditarNombre.value
+ usuarios[posicionDelUsuario].contraseña = inputEditarContraseña.value
+ usuarios[posicionDelUsuario].estado = inputEditarEstado.value     
+ usuarios[posicionDelUsuario].rol    = inputEditarRol.value   
+
+ guardar(USUARIO_KEY,usuarios)
+ mostrarUsuariosRegistrados()
+}
+
+function ejecutarDeshabilitarUsuario(id) {
+  let usuarios = obtener(USUARIO_KEY)
+  let posicionDelUsuario = obtenerPosicion(id)
+  usuarios[posicionDelUsuario].estado = 'deshabilitado'
+
+ guardar(USUARIO_KEY,usuarios)
+ mostrarUsuariosRegistrados()
+
+}
+function ejecutarHabilitarUsuario(id){
+  let usuarios = obtener(USUARIO_KEY)
+  let posicionDelUsuario = obtenerPosicion(id)
+  usuarios[posicionDelUsuario].estado = 'habilitado'
+  
+   guardar(USUARIO_KEY,usuarios)
+   mostrarUsuariosRegistrados()
 }
 
 function crearBotonAccion(textoBoton) {
   const btn = document.createElement("button");
-  btn.classList.add('btn')
-  btn.textContent = textoBoton;
-  btn.setAttribute("type", "button");
-  return btn;
+   btn.classList.add('btn')
+    btn.setAttribute("type", "button");
+  if(textoBoton === 'editar'){
+  btn.classList.add("btn-info")
+   btn.innerHTML ='<i class="bi bi-clipboard-x"></i>'
+  btn.setAttribute('data-bs-target',"#editarUsuario")
+  btn.setAttribute('data-bs-toggle',"modal")
+  }
+  if(textoBoton === 'habilitar'){
+     btn.classList.add("btn-success")
+     btn.innerHTML = '<i class="bi bi-check-square"></i>'
+  }
+
+  if(textoBoton === 'deshabilitar'){
+    btn.classList.add("btn-danger")
+    btn.innerHTML = '<i class="bi bi-ban"></i>' 
+
+  }
+  return btn
 }

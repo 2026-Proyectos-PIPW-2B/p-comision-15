@@ -1,4 +1,4 @@
-const tiempoExpiracionAdministrador = 300000
+const tiempoExpiracionAdministrador = 600000 // 10minutos
 
 export function guardar(key, data){
     const parsedData = JSON.stringify(data);

@@ -30,7 +30,9 @@ function validarUsuario(nombre, contraseña, estado, rol) {
 }
 
 function crearUsuario(nombreUsuario, contraseña, estado, rol) {
+   const id = crypto.randomUUID();
   const usuario = {
+    id: id,
     nombre: nombreUsuario,
     contraseña: contraseña,
     estado: estado,
@@ -86,4 +88,32 @@ export function cerrarSesion(){
       eliminar('sesion');
       eliminar('tiempoExpiracion');
       window.location.href = '../inicio.html'
+}
+
+export function obtenerUsuarios() {
+  const usuarios = obtener(USUARIO_KEY) || [];
+  return usuarios;
+}
+
+export function obtenerUsuario(id){
+  let retorno = null
+  const usuarios = obtenerUsuarios()
+
+  for(let i = 0; i < usuarios.length && retorno == null; i++){
+    if (usuarios[i].id == id){
+      retorno = usuarios[i]
+    }
+  }
+  return retorno
+}
+
+export  function obtenerPosicion (id){
+  let pos = 0;
+  const usuarios = obtener(USUARIO_KEY)
+  for (let i=0; i<usuarios.length; i++){
+    if (usuarios[i].id == id){
+      pos = i
+    }
+  }
+  return pos;
 }

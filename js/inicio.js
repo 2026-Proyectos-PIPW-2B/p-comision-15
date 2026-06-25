@@ -12,9 +12,11 @@ function inicializar(){
 function iniciarInputs(){
   const botonDesconexion = document.getElementById("botonDesconexion")
   const botonSesion = document.getElementById("botonSesion");
+  const botonCarrito = document.getElementById('botonCarrito');
 
   botonSesion.addEventListener("click", obtenerDatos);
-  botonDesconexion.addEventListener('click',cerrarSesion)
+  botonDesconexion.addEventListener('click',cerrarSesion);
+  botonCarrito.addEventListener('click',redirigirAlCarrito);
 }
 
 function obtenerDatos(){
@@ -40,6 +42,12 @@ function sesionIniciada (){
      iconoDesconexion.style.display = 'inline-block';
   }else{
     iconoDesconexion.style.display = 'none';
+  }
+}
+
+function redirigirAlCarrito (){
+  if(verificarSesion()){
+    window.location.href = 'carrito.html'
   }
 }
 
