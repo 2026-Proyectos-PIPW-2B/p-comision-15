@@ -36,7 +36,13 @@ export function obtenerProducto(id){
 }
 
 export function eliminarProducto(id){
-  let producto = obtenerProducto(id)
+  let productos = obtenerProductos()
 
-  eliminar(producto)
+  for (let i = 0; i < productos.length; i++){
+    if (productos[i].id === id){
+      productos.splice(i, 1)
+      break
+    }
+  }
+  localStorage.setItem('productos', JSON.stringify(productos))
 }

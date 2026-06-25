@@ -11,6 +11,8 @@ const inputEditarNombre = document.getElementById("inputEditarNombre");
 const inputEditarCategoria = document.getElementById("inputEditarCategoria");
 const inputEditarStock = document.getElementById("inputEditarStock");
 
+const clave_productos_ls = "productos";
+
 window.addEventListener("DOMContentLoaded", inicializar);
 
 function inicializar() {
@@ -21,12 +23,6 @@ function inicializar() {
 function agregarListener() {
   const botonCrear = document.getElementById("botonCrearProducto");
   botonCrear.addEventListener("click", crearProducto);
-
-  //const botonEditar = document.getElementById("btnEditarProducto")
-  //botonEditar.addEventListener("click", ejecutarEditarProducto)
-
-  //const botonEliminar = document.getElementById("btnEliminarProducto")
-  //botonEliminar.addEventListener("click", ejecutarEliminarProducto)
 }
 
 function listarProductos() {
@@ -57,12 +53,12 @@ function agregarProductoEnTabla(producto) {
   const col_5 = document.createElement("td");
   const col_6 = document.createElement("td");
 
-  const btn_editar = crearBotonAccion("editar","btnEditarProducto");
+  const btn_editar = crearBotonAccion("editar",`btnEditarProducto-${producto.id}`, "editar");
   btn_editar.addEventListener("click", function () {
     ejecutarEditarProducto(producto.id);
   });
 
-  const btn_eliminar = crearBotonAccion("eliminar", "btnEliminarProducto");
+  const btn_eliminar = crearBotonAccion("eliminar", `btnEliminarProducto-${producto.id}`, "eliminar");
   btn_eliminar.addEventListener("click", function () {
     ejecutarEliminarProducto(producto.id);
   });
@@ -85,13 +81,16 @@ function agregarProductoEnTabla(producto) {
   tablaBody.appendChild(fila);
 }
 
-function crearBotonAccion(textoBoton, id_btn) {
+function crearBotonAccion(textoBoton, id_btn, tipoDeBtn) {
   const btn = document.createElement("button");
   btn.textContent = textoBoton;
   btn.setAttribute("type", "button");
   btn.setAttribute("id", id_btn)
-  btn.setAttribute("data-bs-toggle", "modal")
-  btn.setAttribute("data-bs-target", "#modalEditar")
+
+  if (tipoDeBtn === "editar"){
+    btn.setAttribute("data-bs-toggle", "modal")
+    btn.setAttribute("data-bs-target", "#modalEditar")
+  }
   return btn;
 }
 
@@ -152,16 +151,19 @@ function ejecutarEditarProducto(id) {
   inputEditarNombre.value = producto.nombre;
   inputEditarCategoria.value = producto.categoria;
   inputEditarStock.value = producto.stock;
-
-  
 }
 
 function ejecutarEliminarProducto(id) {
   const producto = obtenerProducto(id)
 
   if (producto !== null){
-    eliminarProducto(producto)
+    eliminarProducto(producto.id)
   }
-  
+
+  tablaBody.innerHTML = ""
+
+  listarProductos()
+
+
   //alert("Anda a eliminar el producto con id " + id);
 }
