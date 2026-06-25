@@ -44,5 +44,19 @@ export function eliminarProducto(id){
       break
     }
   }
-  localStorage.setItem('productos', JSON.stringify(productos))
+  localStorage.setItem(clave_productos_ls, JSON.stringify(productos))
+}
+
+export function editarProducto(id, nombre, categoria, stock){
+  let productos = obtenerProductos()
+
+  for (let i = 0; i < productos.length; i++){
+    if (productos[i].id === id){
+      productos[i].nombre = nombre
+      productos[i].categoria = categoria
+      productos[i].stock = stock
+      break
+    }
+  }
+  localStorage.setItem(clave_productos_ls, JSON.stringify(productos))
 }
