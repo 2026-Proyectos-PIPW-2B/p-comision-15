@@ -2,7 +2,7 @@ import { obtener, guardar, eliminar } from "./gestorStorage.js";
 
 const clave_productos_ls = "productos";
 
-export function agregarProducto(nombre, categoria, marca, precio, stock) {
+export function agregarProducto(nombre, categoria, marca, precio, stock, img) {
   const productos = obtener(clave_productos_ls) || [];
   const id = crypto.randomUUID();
 
@@ -13,6 +13,7 @@ export function agregarProducto(nombre, categoria, marca, precio, stock) {
     marca: marca,
     precio: precio,
     stock: stock,
+    img: img,
   };
   productos.push(producto);
   guardar(clave_productos_ls, productos);

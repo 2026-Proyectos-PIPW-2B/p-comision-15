@@ -13,6 +13,8 @@ const inputEditarNombre = document.getElementById("inputEditarNombre");
 const inputEditarCategoria = document.getElementById("inputEditarCategoria");
 const inputEditarStock = document.getElementById("inputEditarStock");
 
+const inputEliminarID = document.getElementById("inputEliminarID");
+
 const clave_productos_ls = "productos";
 
 window.addEventListener("DOMContentLoaded", inicializar);
@@ -24,9 +26,16 @@ function inicializar() {
 
 function agregarListener() {
   const botonCrear = document.getElementById("botonCrearProducto");
-  const botonEditar = document.getElementById("btnConfirmarEdicion")
+  const botonEditar = document.getElementById("btnConfirmarEdicion");
+  const botonEliminar = document.getElementById("btnConfirmarEliminacion");
+  const botonSeleccionarImagen = document.getElementById("btnSeleccionarImg");
   botonCrear.addEventListener("click", crearProducto);
   botonEditar.addEventListener("click", ejecutarEditarProducto);
+  botonEliminar.addEventListener("click", ejecutarEliminarProducto);
+  botonSeleccionarImagen.addEventListener("click", function () {
+    precargarImagenes();
+    abrirModal("modalSeleccionarImg");
+  });
 }
 
 function listarProductos() {
@@ -97,6 +106,8 @@ function crearBotonAccion(tipoBoton) {
   }
 
   if (tipoBoton === "eliminar") {
+    btn.setAttribute("data-bs-toggle", "modal");
+    btn.setAttribute("data-bs-target", "#modalEliminar");
     btn.classList.add("btn", "btn-danger");
     btn.innerHTML = '<i class="bi bi-ban"></i>';
   }
@@ -113,6 +124,7 @@ function crearProducto() {
       inputMarca.value,
       inputPrecio.value,
       inputStock.value,
+      inputImg.value,
     );
     listarProductos();
   }
@@ -126,6 +138,7 @@ function validarForm() {
   const marcaProducto = inputMarca.value;
   const precioProducto = inputPrecio.value;
   const stockProducto = inputStock.value;
+  const imgProducto = inputImg.value;
 
   if (nombreProducto.length < 4) {
     resultado = false;
@@ -164,30 +177,31 @@ function precargarEditarProducto(id) {
 }
 
 function precargarEliminarProducto(id) {
-  const producto = obtenerProducto(id);
-
-  if (producto !== null) {
-    eliminarProducto(producto.id);
-  }
-
-  tablaBody.innerHTML = "";
-
-  listarProductos();
-
+  inputEliminarID.value = id;
 }
 
-function ejecutarEditarProducto(){
-  let resultado = true
+function precargarImagenes() {
+  const divImagenes = document.getElementById("divImagenes");
+  const imagenes = ["Apple-logo.png", "Apple-logo.png", "Apple-logo.png"];
+  for (let i = 0; i < imagenes.length; i++) {
+    let imagen = document.createElement("img");
+    imagen.setAttribute("src", "./img/" + imagenes[i]);
+    imagen.classList.add("col-2");
+    divImagenes.appendChild(imagen);
+  }
+}
+
+function ejecutarEditarProducto() {
+  let resultado = true;
 
   let id = inputEditarID.value;
   let nombre = inputEditarNombre.value;
-  let categoria =  inputEditarCategoria.value;
+  let categoria = inputEditarCategoria.value;
   let stock = inputEditarStock.value;
 
-  
-  if (nombre.length < 4){
-    resultado = false
-    inputEditarNombre.classList.add("is-invalid")
+  if (nombre.length < 4) {
+    resultado = false;
+    inputEditarNombre.classList.add("is-invalid");
   }
 
   if (categoria === "") {
@@ -200,11 +214,46 @@ function ejecutarEditarProducto(){
     inputEditarStock.classList.add("is-invalid");
   }
 
-  console.log(resultado)
+  console.log(resultado);
 
-  if (resultado === true){
-    editarProducto(id, nombre, categoria, stock)
-    listarProductos()
+  if (resultado === true) {
+    editarProducto(id, nombre, categoria, stock);
+    cerrarModal("modalEditar");
+    listarProductos();
+  }
+}
+
+function ejecutarEliminarProducto() {
+  const id = inputEliminarID.value;
+  const producto = obtenerProducto(id);
+
+  if (producto !== null) {
+    eliminarProducto(producto.id);
   }
 
+  cerrarModal("modalEliminar");
+  listarProductos();
 }
+
+function abrirModal(modalID) {
+  const modalElement = document.getElementById(modalID);
+  const modalInstance = new bootstrap.Modal(modalElement);
+
+  if (modalInstance) {
+    modalInstance.show();
+  }
+}
+
+function cerrarModal(modalID) {
+  const modalElement = document.getElementById(modalID);
+  const modalInstance = bootstrap.Modal.getInstance(modalElement);
+
+  if (modalInstance) {
+    modalInstance.hide();
+  }
+}
+
+function cargarImagen() {}
+
+//crear un modal que permita mostrar imagenes de la carpeta img
+//esas imagenes
