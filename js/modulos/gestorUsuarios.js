@@ -47,14 +47,43 @@ function crearUsuario(nombreUsuario, contraseña, estado, rol) {
   guardar("usuarios", usuarios)
 }
 
+function validarInicioSesion(nombreUsuario, contraseñaUsuario){
+  const usuarios = obtenerUsuarios()
+  let contieneNombre = false
+  let contieneContraseña = false
+  let usuarioValido = false
+
+ 
+  for (let i = 0; i<usuarios.length; i++){
+    if(usuarios[i].nombre === nombreUsuario){
+      contieneNombre = true
+      idNombre= usuarios[i].id
+      break;
+    }}
+  for (let i = 0; i<usuarios.length; i++){
+    if(usuarios[i].contraseña === contraseñaUsuario ){
+      contieneContraseña = true
+      idContraseña = usuarios[i].id
+      break;
+    }}
+    if(idNombre === idContraseña){
+      if ( obtenerUsuario(idNombre).rol === 'habilitado'){
+          usuarioValido = true
+      }
+    }
+      return(usuarioValido)
+}
+
+
+
+
 export function inicioSesion(nombre, contraseña, urlActual) {
   let encontrado = false;
   const usuariosDelArray = obtener(USUARIO_KEY)
 
   for (let i = 0; i <= usuariosDelArray.length - 1; i++) {
     if (
-      nombre === usuariosDelArray[i].nombre &&
-      contraseña === usuariosDelArray[i].contraseña
+      nombre === usuariosDelArray[i].nombre && contraseña === usuariosDelArray[i].contraseña
     ) {               
        verificarAdminYRedirigir(usuariosDelArray[i], 'admUsuarios.html')
       encontrado = true;
@@ -87,6 +116,7 @@ export function verificarSesion(){
 export function cerrarSesion(){
       eliminar('sesion');
       eliminar('tiempoExpiracion');
+      eliminar('productosComprados')
       window.location.href = '../inicio.html'
 }
 
@@ -117,3 +147,32 @@ export  function obtenerPosicion (id){
   }
   return pos;
 }
+export  function buscarUsuario(nombreUsuario){
+  const usuarios = obtenerUsuarios()
+  let contieneNombre = false
+  let idNombre;
+  let errores;
+  
+  for (let i = 0; i<usuarios.length; i++){
+    if(usuarios[i].nombre === nombreUsuario){
+      contieneNombre = true
+      idNombre = usuarios[i].id
+      break;
+    }}
+  return {contieneNombre, idNombre}
+  }  
+
+export  function buscarContraseña (contraseñaUsuario){
+      const usuarios = obtenerUsuarios()
+      let contieneContraseña = false
+      let idContraseña
+
+    for (let i = 0; i<usuarios.length; i++){
+    if(usuarios[i].contraseña === contraseñaUsuario ){
+      contieneContraseña = true
+      idContraseña = usuarios[i].id
+      break;
+    }}
+        return {contieneContraseña, idContraseña}
+}
+

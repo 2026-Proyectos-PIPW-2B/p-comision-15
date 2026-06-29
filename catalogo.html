@@ -31,25 +31,28 @@
               class="form-control form-control-dark text-bg-white text-center"
               placeholder="Ingrese el nombre del producto para buscarlo"
               aria-label="Search"
+              id="inputFiltroDescripcion"
             />
           </form>
 
          <div class="align-items-end">        
               <span id="iconoDesconexion"><button type="button" class="boton-link btn color-principal" id="botonDesconexion"><i class="bi bi-person-fill-x"></i></button></span>
-            <button
+                        <span id="iconoConexion">
+              <button
               class="boton-link btn color-principal"
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#modalLogin"
             >
               <i class="bi bi-person-circle"></i>
-            </button>
+            </button></span>
+
               <button 
                 type="button"
                 class="boton-link btn color-principal"
                 id="botonCarrito"
                 data-bs-toggle="modal"
-                data-bs-target="#modalLogin">
+                data-bs-target="modalLogin">
                 <i class="bi bi-cart"></i>
               </button>
             </a>
@@ -114,6 +117,7 @@
       </div>
 
     </div>
+
     <div class="container navbar column px-4 d-md-none">
       <div class="btn-group col-6 mx-auto rounded-4"  role="group">
         <button
@@ -135,6 +139,7 @@
       <div
         class="text-bg-dark p-3 h-auto d-md-block d-none"
         style="width: 15rem"
+        id=""
       >
         <button
           class="btn btn-toggle color-principal d-inline-flex boton-link align-items-center rounded border-0"
@@ -145,94 +150,21 @@
           Categorias
         </button>
 
-        <div id="categorias-collapse">
-          <ul class="nav nav-pills flex-column mt-3 mb-auto" >
-          <li>
-            <a href="#" class="nav-link boton-link  color-fuente-primario" aria-current="page">
-              Monitores</a
-            >
-          </li>
-          <li><a href="#" class="nav-link boton-link  color-fuente-primario"> Celulares </a></li>
-          <li><a href="#" class="nav-link boton-link  color-fuente-primario"> Perifericos </a></li>
-          <li><a href="#" class="nav-link boton-link  color-fuente-primario"> Fuentes </a></li>
+        <div id="categorias-collapse" class="collapse">
+          <ul class="nav nav-pills flex-column mt-3 mb-auto " id="categoriasproductos" >
+          <li class="nav-link boton-link  color-fuente-primario" id="categoriaMonitor">Monitor</li>
+          <li class="nav-link boton-link  color-fuente-primario" id="categoriaCelulares">Celulares</a></li>
+          <li class="nav-link boton-link  color-fuente-primario" id="categoriaPerifericos">Perifericos</a></li>
+          <li class="nav-link boton-link  color-fuente-primario" id="categoriaFuentes">Fuentes</a></li>
         </ul>
         </div>
+
+        
       </div>
+
       <div
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-5 justify-content-center justify-content-sm-start mx-0 g-3 g-lg-5 color-fondo-gris" id="muestraProductos">
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 1.250.000</p>
-              <p class="stock-high rounded-4 p-2">Cantidad disponible 10</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 1.250.000</p>
-               <p class="stock-medium rounded-4 p-2">Cantidad disponible 5</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 1.250.000</p>
-               <p class="stock-low rounded-4 p-2">Cantidad disponible 3</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 1.250.000</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 1.250.000</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 2.5000.000</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card rounded-4 my-3">
-            <div class="card-body d-flex flex-column align-items-center">
-              <img src="img/Monitor-1.jpg" class="card-img" alt="" />
-              <h5 class="card-title">Monitor LG 24BR550Y 24"</h5>
-              <p class="card-text fs-4">$ 2.5000.000</p>
-              <button class="btn fondo-boton">Sumar al carrito</button>
-            </div>
-          </div>
-        </div>
+        class="container mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-5 justify-content-center justify-content-sm-start mx-0 g-3 g-lg-5 color-fondo-gris"
+        id="muestraProductos">
       </div>
     </main>
 
@@ -253,7 +185,7 @@
 
               <ul class="list-unstyled">
                 <li>
-                  <a href="inicio" class="text-white text-decoration-none"
+                  <a href="inicio.html" class="text-white text-decoration-none"
                     >Inicio</a
                   >
                 </li>
@@ -262,11 +194,6 @@
                     href="catalogo.html"
                     class="text-white text-decoration-none"
                     >Productos</a
-                  >
-                </li>
-                <li>
-                  <a href="carrito.html" class="text-white text-decoration-none"
-                    >Carrito</a
                   >
                 </li>
               </ul>

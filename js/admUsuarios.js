@@ -84,8 +84,8 @@ function agregarFilaEnTabla(usuario) {
   });
 
   const btn_deshabilitar = crearBotonAccion("deshabilitar");
-  btn_deshabilitar.addEventListener("click", function () {
-    ejecutarDeshabilitarUsuario(usuario.id);
+        btn_deshabilitar.addEventListener("click", function () {
+        ejecutarDeshabilitarUsuario(usuario.id);
   });
 
 
