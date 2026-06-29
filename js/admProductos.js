@@ -182,12 +182,19 @@ function precargarEliminarProducto(id) {
 
 function precargarImagenes() {
   const divImagenes = document.getElementById("divImagenes");
-  const imagenes = ["Apple-logo.png", "Apple-logo.png", "Apple-logo.png"];
+  const imagenes = ["Iphone17-promax.png", "monitor-asus.png", "Nvidia-5090.png"];
   for (let i = 0; i < imagenes.length; i++) {
     let imagen = document.createElement("img");
     imagen.setAttribute("src", "./img/" + imagenes[i]);
+    imagen.setAttribute("data-name", imagenes[i])
     imagen.classList.add("col-2");
     divImagenes.appendChild(imagen);
+
+    imagen.addEventListener("click", function(evento){
+      const nombreArchivo = evento.target.getAttribute("data-name");
+      document.getElementById("inputImg").value = nombreArchivo;
+      producto.imagen = nombreArchivo;
+    })
   }
 }
 
