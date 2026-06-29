@@ -110,6 +110,15 @@ color: var(--color-primario) !important;
     transition: transform .35s ease;
     transform-origin: .5em 50%;
 }
+
 .btn-toggle[aria-expanded="true"]::before {
     transform: rotate(90deg);
+}
+
+.hover-zoom{
+    transition: transform 0.3 ease;
+}
+
+.hover-zoom:hover{
+    transform: scale(1.05);
 }
