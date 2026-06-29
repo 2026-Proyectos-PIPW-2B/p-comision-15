@@ -52,7 +52,7 @@
                 class="boton-link btn color-principal"
                 id="botonCarrito"
                 data-bs-toggle="modal"
-                data-bs-target="modalLogin">
+                data-bs-target="#modalLogin">
                 <i class="bi bi-cart"></i>
               </button>
             </a>
@@ -118,21 +118,19 @@
 
     </div>
 
-    <div class="container navbar column px-4 d-md-none">
-      <div class="btn-group col-6 mx-auto rounded-4"  role="group">
+    <div class="container navbar column px-4 d-md-none w-50 align-self-center mt-2 row rounded-4 bg-dark ">
         <button
-          type="button"
-          class="btn fondo-boton dropdown-toggle"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          class="btn btn-toggle color-principal boton-link  align-items-center rounded border-0 bg-dark"
+          data-bs-toggle="collapse"
+          data-bs-target="#categorias-collapse-lite"
+          aria-expanded="true"
         >
           Categorias
         </button>
-        <ul class="dropdown-menu col-12 text-center">
-          <li><a class="dropdown-item" href="#">Categoria 1</a></li>
-          <li><a class="dropdown-item" href="#">Categoria 2</a></li>
-        </ul>
-      </div>
+        <div id="categorias-collapse-lite" class="collapse">
+          <ul class="nav nav-pills flex-column  mb-auto bg-dark text-center " id="categoriasLite" >         
+          </ul>
+        </div>
     </div>
 
     <main class="container-fluid mx-auto flex-grow-1 p-0 d-flex flex-row">
@@ -151,12 +149,8 @@
         </button>
 
         <div id="categorias-collapse" class="collapse">
-          <ul class="nav nav-pills flex-column mt-3 mb-auto " id="categoriasproductos" >
-          <li class="nav-link boton-link  color-fuente-primario" id="categoriaMonitor">Monitor</li>
-          <li class="nav-link boton-link  color-fuente-primario" id="categoriaCelulares">Celulares</a></li>
-          <li class="nav-link boton-link  color-fuente-primario" id="categoriaPerifericos">Perifericos</a></li>
-          <li class="nav-link boton-link  color-fuente-primario" id="categoriaFuentes">Fuentes</a></li>
-        </ul>
+          <ul class="nav nav-pills flex-column mt-3 mb-auto " id="categoriasproductos" >  
+          </ul>
         </div>
 
         

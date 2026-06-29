@@ -74,9 +74,6 @@ function validarInicioSesion(nombreUsuario, contraseñaUsuario){
       return(usuarioValido)
 }
 
-
-
-
 export function inicioSesion(nombre, contraseña, urlActual) {
   let encontrado = false;
   const usuariosDelArray = obtener(USUARIO_KEY)

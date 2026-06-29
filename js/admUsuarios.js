@@ -1,4 +1,4 @@
-import { obtener, eliminar, guardar, obtenerSesion } from "./modulos/gestorStorage.js";
+import { obtener, guardar, obtenerSesion } from "./modulos/gestorStorage.js";
 import { obtenerUsuario, validarDatos as validacion, verificarSesion, obtenerUsuarios, cerrarSesion, obtenerPosicion } from './modulos/gestorUsuarios.js'
 
 const bodyTabla = document.getElementById("bodyTabla");

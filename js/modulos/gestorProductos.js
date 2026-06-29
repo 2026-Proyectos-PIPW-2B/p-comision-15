@@ -1,4 +1,4 @@
-import { obtener, guardar, eliminar } from "./gestorStorage.js";
+import { obtener, guardar } from "./gestorStorage.js";
 
 const clave_productos_ls = "productos";
 
