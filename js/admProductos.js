@@ -1,3 +1,4 @@
+import { obtenerImagenes } from "./modulos/gestorImagenes.js";
 import {
   agregarProducto,
   obtenerProducto,
@@ -56,6 +57,11 @@ function agregarProductoEnTabla(producto) {
   const marca = producto.marca;
   const precio = producto.precio;
   const stock = producto.stock;
+  const img = producto.img;
+
+  const muestraImagen = document.createElement("img");
+  muestraImagen.setAttribute("src", "img/" + img);
+  muestraImagen.classList.add("img-fluid", "img-container");
 
   const fila = document.createElement("tr");
 
@@ -65,6 +71,7 @@ function agregarProductoEnTabla(producto) {
   const col_4 = document.createElement("td");
   const col_5 = document.createElement("td");
   const col_6 = document.createElement("td");
+  const col_7 = document.createElement("td");
 
   const btn_editar = crearBotonAccion("editar");
   btn_editar.addEventListener("click", function () {
@@ -81,8 +88,9 @@ function agregarProductoEnTabla(producto) {
   col_3.textContent = categoria;
   col_4.textContent = marca;
   col_5.textContent = stock;
-  col_6.appendChild(btn_editar);
-  col_6.appendChild(btn_eliminar);
+  col_6.appendChild(muestraImagen);
+  col_7.appendChild(btn_editar);
+  col_7.appendChild(btn_eliminar);
 
   fila.appendChild(col_1);
   fila.appendChild(col_2);
@@ -90,6 +98,7 @@ function agregarProductoEnTabla(producto) {
   fila.appendChild(col_4);
   fila.appendChild(col_5);
   fila.appendChild(col_6);
+  fila.appendChild(col_7);
 
   tablaBody.appendChild(fila);
 }
@@ -133,6 +142,15 @@ function crearProducto() {
 function validarForm() {
   let resultado = true;
 
+  let errores = {
+    nombreError: [],
+    categoriaError: [],
+    marcaError: [],
+    precioError: [],
+    stockError: [],
+    imgError: [],
+  };
+
   const nombreProducto = inputNombre.value;
   const categoriaProducto = inputCategoria.value;
   const marcaProducto = inputMarca.value;
@@ -143,28 +161,35 @@ function validarForm() {
   if (nombreProducto.length < 4) {
     resultado = false;
     inputNombre.classList.add("is-invalid");
-    //resultado.errores.push("El nombre debe tener mas de 4 caracteres");
+    errores.nombreError.push("El nombre debe tener mas de 4 caracteres");
   }
   if (categoriaProducto === "") {
     resultado = false;
     inputCategoria.classList.add("is-invalid");
-    //resultado.errores.push("Debe seleccionar una categoria");
+    errores.categoriaError.push("Debe seleccionar una categoria");
   }
   if (marcaProducto === "") {
     resultado = false;
     inputMarca.classList.add("is-invalid");
-    //resultado.errores.push("Debe seleccionar una marca");
+    errores.marcaError.push("Debe seleccionar una marca");
   }
   if (precioProducto <= 0) {
     resultado = false;
     inputPrecio.classList.add("is-invalid");
-    //resultado.errores.push("El precio debe ser mayor a 0");
+    errores.precioError.push("El precio debe ser mayor a 0");
   }
   if (stockProducto <= 0) {
     resultado = false;
     inputStock.classList.add("is-invalid");
-    //resultado.errores.push("El producto debe tener stock");
+    errores.stockError.push("El producto debe tener stock");
   }
+  if (imgProducto === "") {
+    resultado = false;
+    inputImg.classList.add("is-invalid");
+    errores.imgError.add("Debe seleccionar una imagen");
+  }
+
+  
   return resultado;
 }
 
@@ -182,19 +207,21 @@ function precargarEliminarProducto(id) {
 
 function precargarImagenes() {
   const divImagenes = document.getElementById("divImagenes");
-  const imagenes = ["Iphone17-promax.png", "monitor-asus.png", "Nvidia-5090.png"];
+  const imagenes = obtenerImagenes();
+  divImagenes.innerHTML = "";
+
   for (let i = 0; i < imagenes.length; i++) {
     let imagen = document.createElement("img");
     imagen.setAttribute("src", "./img/" + imagenes[i]);
-    imagen.setAttribute("data-name", imagenes[i])
-    imagen.classList.add("col-2");
+    imagen.setAttribute("data-name", imagenes[i]);
+    imagen.classList.add("col-2", "img-thumbnail", "hover-zoom");
     divImagenes.appendChild(imagen);
 
-    imagen.addEventListener("click", function(evento){
+    imagen.addEventListener("click", function (evento) {
       const nombreArchivo = evento.target.getAttribute("data-name");
       document.getElementById("inputImg").value = nombreArchivo;
-      producto.imagen = nombreArchivo;
-    })
+      cerrarModal("modalSeleccionarImg");
+    });
   }
 }
 
@@ -220,8 +247,6 @@ function ejecutarEditarProducto() {
     resultado = false;
     inputEditarStock.classList.add("is-invalid");
   }
-
-  console.log(resultado);
 
   if (resultado === true) {
     editarProducto(id, nombre, categoria, stock);
@@ -259,8 +284,3 @@ function cerrarModal(modalID) {
     modalInstance.hide();
   }
 }
-
-function cargarImagen() {}
-
-//crear un modal que permita mostrar imagenes de la carpeta img
-//esas imagenes

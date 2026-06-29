@@ -109,10 +109,6 @@
                             <p>Seleccione una imagen disponible</p>
                             <div id="divImagenes"></div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-lg rounded-3 fondo-boton" id="btnConfirmarImg">Cargar</button>
-                        </div>
                      </div>
                 </div>
             </div>
@@ -145,9 +141,10 @@
                                         <label for="inputMarca" class="form-label">Marcas</label>
                                         <select id="inputMarca" class="form-select">
                                             <option value="" disabled>Seleccionar una opcion</option>
-                                            <option value="lg">LG</option>
-                                            <option value="asus">Asus</option>
+                                            <option value="Iphone">Iphone</option>
+                                            <option value="Asus">Asus</option>
                                             <option value="Samsung">Samsung</option>
+                                            <option value="Nvidia">Nvidia</option>
                                         </select>
                                     </div>
                                     <div class="mb-3 col-5">
@@ -183,7 +180,7 @@
             <div class="container color-fondo-gris">
                 <h2 class="color-principal">Listado de productos agregados</h2>
                 <form action="">
-                    <table class="table table-bordered table-striped">
+                    <table class="table text-center table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -191,6 +188,7 @@
                                 <th>Categoria</th>
                                 <th>Marca</th>
                                 <th>Cantidad</th>
+                                <th>Imagen</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
