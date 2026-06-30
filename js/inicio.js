@@ -1,6 +1,5 @@
 import {inicioSesion, verificarSesion, cerrarSesion, obtenerUsuarios, obtenerUsuario, buscarContraseña, buscarUsuario } from './modulos/gestorUsuarios.js'
 
-const urlActual = 'inicio.html'
 window.addEventListener('DOMContentLoaded', inicializar)
 
 function inicializar(){
@@ -42,7 +41,7 @@ function iniciarInputs(){
      }
 
       if(usuarioValido === contraseñaValida && obtenerUsuario(usuarioValido).estado === 'habilitado'){
-        inicioSesion(nombreUsuario, contraseñaUsuario, urlActual)
+        inicioSesion(nombreUsuario, contraseñaUsuario)
       }else{
         mostrarError('El usuario esta deshabilitado ')
       }

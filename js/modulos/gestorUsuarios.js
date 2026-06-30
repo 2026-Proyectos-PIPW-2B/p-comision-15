@@ -3,6 +3,8 @@ import{guardar, obtener, eliminarTodo, eliminar, iniciarConteoSesion, obtenerSes
 const usuario_sesion = 'usuario'
 const admin_sesion = 'admin'
 const USUARIO_KEY="usuarios";
+const urlInicio = 'inicio.html'
+const urlAdmin = 'admUsuarios.html'
  
 export function validarDatos(nombre, contraseña, estado, rol) {
   const divValidacion = document.getElementById("divValidacion");
@@ -74,31 +76,36 @@ function validarInicioSesion(nombreUsuario, contraseñaUsuario){
       return(usuarioValido)
 }
 
-export function inicioSesion(nombre, contraseña, urlActual) {
+export function inicioSesion(nombre, contraseña) {
   let encontrado = false;
   const usuariosDelArray = obtener(USUARIO_KEY)
 
   for (let i = 0; i <= usuariosDelArray.length - 1; i++) {
-    if (
-      nombre === usuariosDelArray[i].nombre && contraseña === usuariosDelArray[i].contraseña
-    ) {               
-       verificarAdminYRedirigir(usuariosDelArray[i], 'admUsuarios.html')
+    if (nombre === usuariosDelArray[i].nombre && contraseña === usuariosDelArray[i].contraseña) {   
+      let usuario = usuariosDelArray[i]
+          if(usuario.rol === 'admin'){            
+             verificarAdminYRedirigir(usuario)
+            }else{
+             verificarUsuarioYRedirigir(usuario)
+            }
       encontrado = true;
       break;
-    }else{
-      verificarAdminYRedirigir(usuariosDelArray[i], urlActual)
     }
   }
   encontrado = false;
 }
 
-function verificarAdminYRedirigir(usuario, urlDestino) {
+function verificarUsuarioYRedirigir (usuario){
+      if (usuario.rol === 'usuario'){
+          iniciarConteoSesion(usuario_sesion)
+          location.reload()
+  }
+}
+
+function verificarAdminYRedirigir(usuario) {
   if (usuario.rol === admin_sesion) {
     iniciarConteoSesion(admin_sesion)
-    window.location.href = urlDestino;
-  }else{
-    iniciarConteoSesion(usuario_sesion)
-
+    window.location.href = urlAdmin
   }
 }
 
@@ -114,7 +121,7 @@ export function cerrarSesion(){
       eliminar('sesion');
       eliminar('tiempoExpiracion');
       eliminar('productosComprados')
-      window.location.href = '../inicio.html'
+      window.location.href = urlInicio
 }
 
 export function obtenerUsuarios() {

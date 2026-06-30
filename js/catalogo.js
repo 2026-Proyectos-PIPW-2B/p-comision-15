@@ -2,7 +2,6 @@ import {inicioSesion, buscarContraseña, buscarUsuario, verificarSesion, cerrarS
 import {guardar, obtener } from './modulos/gestorStorage.js'
 import { obtenerProducto, obtenerProductos } from './modulos/gestorProductos.js';
 
-const urlActual = 'catalogo.html';
 const muestraProductos = document.getElementById('muestraProductos')
 window.addEventListener('DOMContentLoaded', inicializar)
 
@@ -77,7 +76,7 @@ function obtenerDatos(){
          return;
        }  
         if(usuarioValido === contraseñaValida && obtenerUsuario(usuarioValido).estado === 'habilitado'){
-          inicioSesion(nombreUsuario, contraseñaUsuario,urlActual)
+          inicioSesion(nombreUsuario, contraseñaUsuario)
         }else{
           mostrarError('El usuario esta deshabilitado ')
         }
