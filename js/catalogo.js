@@ -5,6 +5,8 @@ import { obtenerProducto, obtenerProductos } from './modulos/gestorProductos.js'
 const muestraProductos = document.getElementById('muestraProductos')
 window.addEventListener('DOMContentLoaded', inicializar)
 
+const carrito_key = 'productosComprados' 
+
 function inicializar(){
   generarCategorias()
   iniciarListener()
@@ -164,22 +166,55 @@ function crearCard(producto){
   muestraProductos.appendChild(col)
 }
 
-
-function agregarAlCarrito(id){
-const listadoProductos = obtener('productosComprados') || [];
-if (!verificarSesion()){
-  abrirModal()
-}
-let cantidad 
+function agregarProductoAlCarrito (id, nombre, marca, precio ){
+  const listadoProductos = obtener(carrito_key) || [];
   const productoComprado = {
-  nombreProducto  : obtenerProducto(id).nombre ,
-  marcaProducto : obtenerProducto(id).marca,
-  precioProducto : obtenerProducto(id).precio,
-  cantidad : cantidad
+  id : id,
+  nombreProducto  : nombre,
+  marcaProducto : marca,
+  precioProducto :precio,
+  cantidad : 0,
 }
+
   listadoProductos.push(productoComprado)
   guardar('productosComprados',listadoProductos)
 }
+
+
+function agregarAlCarrito(id){
+if (!verificarSesion()){
+  abrirModal()
+}
+ const idProducto = obtenerProducto(id).id 
+ const nombreProducto = obtenerProducto(id).nombre 
+ const marcaProducto = obtenerProducto(id).marca
+ const precioProducto = obtenerProducto(id).precio
+
+ const listadoProductos = obtener(carrito_key) || [];
+ const index = listadoProductos.findIndex(function(producto) { return producto.id === idProducto; });  
+
+ if(index <0){
+  agregarProductoAlCarrito(idProducto, nombreProducto,
+  marcaProducto,precioProducto)
+  modificarCantidad(idProducto)
+   }
+    else{
+        modificarCantidad(idProducto)
+    }
+}
+function modificarCantidad(idProducto) {
+const listadoProductos = obtener(carrito_key)
+const index = listadoProductos.findIndex(function(producto){ return producto.id === idProducto; });
+    if (index != -1){
+      let nuevaCantidad = listadoProductos[index].cantidad
+      if (nuevaCantidad >= 0) {
+      nuevaCantidad++
+      listadoProductos[index].cantidad = nuevaCantidad
+    }
+    guardar(carrito_key, listadoProductos)
+    }
+  } 
+
 
 function crearBotonAccion() {
   const btn = document.createElement("button");
@@ -208,7 +243,6 @@ function filtrarProductos (){
                crearCard(producto)
       }}
 }
-
 
 function filtrarPorCategoria (categoria){
   categoria = categoria.toLowerCase()
