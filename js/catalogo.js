@@ -1,11 +1,10 @@
-import {inicioSesion, buscarContraseña, buscarUsuario, verificarSesion, cerrarSesion} from './modulos/gestorUsuarios.js'
+import {inicioSesion, buscarContraseña, buscarUsuario, verificarSesion, cerrarSesion, obtenerUsuario} from './modulos/gestorUsuarios.js'
 import {guardar, obtener } from './modulos/gestorStorage.js'
 import { obtenerProducto, obtenerProductos } from './modulos/gestorProductos.js';
 
 const urlActual = 'catalogo.html';
 const muestraProductos = document.getElementById('muestraProductos')
 window.addEventListener('DOMContentLoaded', inicializar)
-
 
 function inicializar(){
   generarCategorias()
@@ -15,7 +14,7 @@ function inicializar(){
 }
 
 function generarCategorias(){
-  let categorias = ["Monitor", "Celulares", "Perifericos"]
+  let categorias = ["Monitor", "Celulares", "Perifericos"] //   
   let li;
   let li_2;
 
@@ -172,10 +171,12 @@ const listadoProductos = obtener('productosComprados') || [];
 if (!verificarSesion()){
   abrirModal()
 }
+let cantidad 
   const productoComprado = {
   nombreProducto  : obtenerProducto(id).nombre ,
   marcaProducto : obtenerProducto(id).marca,
   precioProducto : obtenerProducto(id).precio,
+  cantidad : cantidad
 }
   listadoProductos.push(productoComprado)
   guardar('productosComprados',listadoProductos)

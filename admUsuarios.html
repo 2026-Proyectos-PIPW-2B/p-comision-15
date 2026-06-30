@@ -28,18 +28,27 @@
           </div>
         </div>
       </nav>
-
     </div>
+
     <main class="container flex-grow-1">
-      <div class="container py-5">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <div class="card shadow color-fondo-gris">
-              <div class="card-body p-4">
-                <h1 class="card-title text-center mb-4 colorTexto">
+      <div class="w-50 mx-auto my-5">
+          <button class="w-100 mb-2 btn btn-lg rounded-3 fondo-boton" type="submit" id="botonCrearUsuarios" data-bs-toggle="modal" data-bs-target="#crearUsuarios">
+            Crear Usuario
+          </button>
+      </div>
+    
+    <div class="container">
+        <div class="modal fade" id="CrearUsuario" tabindex="-1" aria-labelledby="CrearUsuario" aria-hidden="true">
+       <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+              <div class="modal-header p-5 pb-4 border-bottom-0">
+                 <h1 class="card-title text-center mb-4 colorTexto">
                   Crear usuarios
                 </h1>
-                <form id="formRegistro">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                </div>
+                 <div class="modal-body p-5 pt-0">
+                                  <form id="formRegistro">
                   <div class="mb-3">
                     <label for="userInput">Nombre de usuario</label>
                     <input
@@ -89,13 +98,13 @@
                       Crear Usuario
                     </button>
                   </div>
+                   <div id="divValidacion"></div>
                 </form>
-                <div id="divValidacion"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
       <div class="container color-fondo-gris">
         <h2 class="color-principal">Listado de usuarios</h2>
         <form action="">
@@ -115,25 +124,16 @@
           </table>
         </form>
       </div>
-            <div class="container">
-        <div
-          class="modal fade"
-          id="editarUsuario"
-          tabindex="-1"
-          aria-labelledby="editarUsuario"
-          aria-hidden="true"
-        >
+      
+    <div class="container">
+        <div class="modal fade" id="editarUsuario" tabindex="-1" aria-labelledby="editarUsuario" aria-hidden="true" >
           <div class="modal-dialog">
             <div class="modal-content rounded-4 shadow">
               <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2">Editar usuario</h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
               </div>
+
               <div class="modal-body p-5 pt-0">
                    <form id="formRegistro" class="row justify-content-between">
                         <div class="mb-3">
@@ -160,9 +160,7 @@
                                 <option value="admin">Administrador</option>
                                 <option value="usuario">Usuario</option>
                             </select>
-                        </div>
-                       
-                       
+                        </div>                                              
                         <div class="mb-3">
                             <button class="w-100 mb-2 btn btn-lg rounded-3 text-white fondo-boton"
                                 type="submit" id="botonEditarUsuarios" >Editar Usuario</button>
@@ -171,6 +169,9 @@
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
 

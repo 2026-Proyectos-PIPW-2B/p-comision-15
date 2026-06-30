@@ -25,10 +25,12 @@ function agregarListenerBotones(){
     const botonValidar = document.getElementById("botonValidar");
     const NOMBRES_USUARIOS = document.getElementById("nombresUsuarios");
      const botonEditarUsuarios = document.getElementById('botonEditarUsuarios')
+     const botonCrearUsuarios =  document.getElementById('botonCrearUsuarios')
 
     botonValidar.addEventListener("click", creacionDeUsuarios);
     NOMBRES_USUARIOS.addEventListener("click", ordenarAlfabeticamente);
     botonEditarUsuarios.addEventListener('click',actualizarUsuario);
+    botonCrearUsuarios.addEventListener('click',abrirModal)
 }
 
 function creacionDeUsuarios() {
@@ -180,4 +182,12 @@ function crearBotonAccion(textoBoton) {
 
   }
   return btn
+}
+
+function abrirModal() {
+  const modalElement = document.getElementById('CrearUsuario');
+  const modalInstance = new bootstrap.Modal(modalElement);
+  if (modalInstance) {
+    modalInstance.show();
+  }
 }
