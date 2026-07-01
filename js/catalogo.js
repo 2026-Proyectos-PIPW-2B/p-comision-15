@@ -2,9 +2,11 @@ import {inicioSesion, buscarContraseña, buscarUsuario, verificarSesion, cerrarS
 import {guardar, obtener } from './modulos/gestorStorage.js'
 import { obtenerProducto, obtenerProductos } from './modulos/gestorProductos.js';
 
+
 const muestraProductos = document.getElementById('muestraProductos')
 window.addEventListener('DOMContentLoaded', inicializar)
 
+const categorias_key = 'categorias'
 const carrito_key = 'productosComprados' 
 
 function inicializar(){
@@ -15,8 +17,9 @@ function inicializar(){
 }
 
 function generarCategorias(){
-  let categorias = ["Monitor", "Celulares", "Perifericos"] //   
-  let li;
+  let categorias = ["Monitor", "Celulares", "Perifericos"]
+   
+ let li;
   let li_2;
 
   const listaCategoriasLite = document.getElementById('categoriasLite')

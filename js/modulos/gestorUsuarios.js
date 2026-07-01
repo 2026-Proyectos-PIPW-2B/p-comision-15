@@ -43,7 +43,7 @@ function crearUsuario(nombreUsuario, contraseña, estado, rol) {
   return usuario;
 }
 
- function agregarUsuarioLocalStorage(usuario) {
+ export function agregarUsuarioLocalStorage(usuario) {
   const usuarios = obtener(USUARIO_KEY) || [];
   usuarios.push(usuario)
   guardar("usuarios", usuarios)

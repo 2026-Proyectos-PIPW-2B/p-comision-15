@@ -29,3 +29,6 @@ export function obtenerSesion (key){
     const data = localStorage.getItem(key)
     return (data)
 }
+
+
+  

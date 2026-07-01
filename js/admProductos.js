@@ -59,6 +59,7 @@ function agregarProductoEnTabla(producto) {
   const stock = producto.stock;
   const img = producto.img;
 
+
   const muestraImagen = document.createElement("img");
   muestraImagen.setAttribute("src", "img/" + img);
   muestraImagen.classList.add("img-fluid", "img-container");
