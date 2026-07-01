@@ -17,15 +17,25 @@
 
   <body class="d-flex flex-column min-vh-100 color-fondo-gris">
     <div class="container-fluid p-0">
+      <div class="col">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
         <div class="container-fluid mx-3">
           <a
             class="logo navbar-brand color-principal fw-bold"
-            href="Inicio.html"
+            href="index.html"
           >
             PipElectronics
           </a>
-          <form class="col-4 col-sm-5 cold-md-6 align-self-center">
+
+               <button class="btn fondo-boton d-md-none"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#barraBusqueda"
+                  aria-expanded="false" aria-controls="barraBusqueda">
+                <i class="bi bi-search"></i>
+          </button>
+
+         <form class="col-4 col-sm-5 cold-md-6 align-self-center d-none  d-md-block" >
             <input
               type="search"
               class="form-control form-control-dark text-bg-white text-center"
@@ -60,6 +70,17 @@
 
         </div>
       </nav>
+
+            <div class="collapse d-md-none mb-2 mt-0" id="barraBusqueda">
+            <form class="d-flex ">
+             <input class=" text-center bg-dark text-white border-0 rounded-0 container-fluid p-3"
+                type="search"
+                placeholder="Ingrese el nombre del producto para buscarlo"
+                aria-label="Search"
+                 id="inputFiltroDescripcionMobile">
+            </form>
+          </div>
+      </div>
 
       <div class="container">
         <div
@@ -179,7 +200,7 @@
 
               <ul class="list-unstyled">
                 <li>
-                  <a href="inicio.html" class="text-white text-decoration-none"
+                  <a href="index.html" class="text-white text-decoration-none"
                     >Inicio</a
                   >
                 </li>

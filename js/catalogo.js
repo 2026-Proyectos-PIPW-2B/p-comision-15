@@ -46,10 +46,11 @@ function iniciarListener(){
   const botonSesion = document.getElementById("botonSesion");
   const botonCarrito = document.getElementById('botonCarrito');
   const botonDesconexion = document.getElementById("botonDesconexion");
-
   const inputFiltroDescripcion = document.getElementById('inputFiltroDescripcion');
+  const inputFiltroDescripcionMobile = document.getElementById('inputFiltroDescripcionMobile');
 
   inputFiltroDescripcion.addEventListener('keyup', filtrarProductos);
+  inputFiltroDescripcionMobile.addEventListener('keyup', filtrarProductosMobile);
   botonSesion.addEventListener("click", obtenerDatos);
   botonDesconexion.addEventListener('click',cerrarSesion);
   botonCarrito.addEventListener('click',redirigirAlCarrito);
@@ -136,12 +137,13 @@ function crearCard(producto){
   const card = document.createElement('div')
   const card_body = document.createElement('div')
   const btn_comprar = crearBotonAccion();
+   const inputFiltroDescripcionMobile = document.getElementById('inputFiltroDescripcionMobile')
     btn_comprar.addEventListener("click", function () {
       agregarAlCarrito(id);
        });
 
   col.classList.add('col')
-  card.classList.add('card', 'rounded-4', 'my-3')
+  card.classList.add('card', 'rounded-4', 'my-3','px-2','shadow-sm')
   card_body.classList.add('card-body','d-flex', 'flex-column')
 
   const nombreProducto = document.createElement('h5');
@@ -236,19 +238,35 @@ function abrirModal(){
   modal.show();
 }
 
+
 function filtrarProductos (){
-    const productos = obtener('productos')
     const inputFiltroDescripcion = document.getElementById('inputFiltroDescripcion').value
-    
+    const limpiarFiltro = document.getElementById('inputFiltroDescripcionMobile')
+          limpiarFiltro.value = ''
+    const productos = obtener('productos')
      muestraProductos.innerHTML = "";
     for (let i = 0; i < productos.length; i++) {
     let producto = productos[i]
-     const mismaDescripcion =
-        inputFiltroDescripcion === "" ||
-        productos[i].nombre.toLowerCase().includes(inputFiltroDescripcion);    
-        if (mismaDescripcion) { 
-               crearCard(producto)
+
+     const mismaDescripcion = inputFiltroDescripcion === "" || productos[i].nombre.toLowerCase().includes(inputFiltroDescripcion);
+        if (mismaDescripcion ) { 
+        crearCard(producto)
       }}
+}
+function filtrarProductosMobile(){
+   const inputFiltroDescripcionMobile = document.getElementById('inputFiltroDescripcionMobile').value
+   const limpiarFiltro = document.getElementById('inputFiltroDescripcion')
+    limpiarFiltro.value= ''
+    const productos = obtener('productos')
+   muestraProductos.innerHTML = "";
+    for (let i = 0; i < productos.length; i++) {
+    let producto = productos[i]
+
+      const mismaDescripcionMobile = inputFiltroDescripcionMobile === '' || productos[i].nombre.toLowerCase().includes(inputFiltroDescripcionMobile)  
+        if ( mismaDescripcionMobile ) { 
+               crearCard(producto)
+  }}
+
 }
 
 function filtrarPorCategoria (categoria){

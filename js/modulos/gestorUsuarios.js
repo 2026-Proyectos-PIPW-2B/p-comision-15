@@ -3,7 +3,7 @@ import{guardar, obtener, eliminarTodo, eliminar, iniciarConteoSesion, obtenerSes
 const usuario_sesion = 'usuario'
 const admin_sesion = 'admin'
 const USUARIO_KEY="usuarios";
-const urlInicio = 'inicio.html'
+const urlInicio = 'index.html'
 const urlAdmin = 'admUsuarios.html'
  
 export function validarDatos(nombre, contraseña, estado, rol) {

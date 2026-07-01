@@ -5,7 +5,7 @@ import {
  // incrementarCantidadComprada,
 } from "./modulos/gestorCarrito.js";
 
-import { guardar } from "./modulos/gestorStorage.js";
+import { guardar,eliminar } from "./modulos/gestorStorage.js";
 import { cerrarSesion } from "./modulos/gestorUsuarios.js";
 const tablaBody = document.getElementById("bodyTabla");
 const clave_productosCarrito_ls = "productosComprados";
@@ -17,15 +17,17 @@ function inicializar() {
   listarProductos();
   mostrarCarrito();
   botonComprar();
-
 }
 
 function agregarListener() {
   const botonEliminar = document.getElementById("btnConfirmarEliminacion");
-    const botonDesconexion = document.getElementById("botonDesconexion")
+  const botonDesconexion = document.getElementById("botonDesconexion")
+  const botonConfirmarCompra = document.getElementById('btnConfirmarCompra')
+
   botonEliminar.addEventListener("click", ejecutarEliminar);
   botonDesconexion.addEventListener('click',cerrarSesion);
-  
+  botonConfirmarCompra.addEventListener('click', limpiarProductos)
+
 }
  function mostrarCarrito (){
   const carrito = obtenerProductosCarrito()
@@ -53,8 +55,6 @@ function listarProductos() {
     agregarProductoEnTabla(producto);
   }
 }
-
-
 
 function agregarProductoEnTabla(productoCarrito) {
   const inputEliminarID = document.getElementById("inputEliminarID");
@@ -87,25 +87,29 @@ function agregarProductoEnTabla(productoCarrito) {
   const col_3 = document.createElement("td");
   const col_4 = document.createElement("td");
   const col_5 = document.createElement("td");
+  const col_6 = document.createElement("td");
+  const col_7 = document.createElement("td");
 
   col_1.textContent = nombre;
   col_2.textContent = precio;
   col_3.textContent = marca;
   col_4.textContent = cantidad;
   col_5.appendChild(btn_sumar);
-  col_5.appendChild(btn_restar);
-  col_5.appendChild(btn_eliminar);
+  col_6.appendChild(btn_restar);
+  col_7.appendChild(btn_eliminar);
 
-  col_5.classList.add('d-flex','gap-2', 'c')
   fila.appendChild(col_1);
   fila.appendChild(col_2);
   fila.appendChild(col_3);
   fila.appendChild(col_4);
   fila.appendChild(col_5);
+  fila.appendChild(col_6);
+  fila.appendChild(col_7);
 
   tablaBody.appendChild(fila);
-    calcularTotal ()
+  calcularTotal ()
 }
+
 function crearBotonAccion(tipoBoton) {
   const btn = document.createElement("button");
   btn.setAttribute("type", "button");
@@ -126,10 +130,13 @@ function crearBotonAccion(tipoBoton) {
     btn.innerHTML = '<i class="bi bi-ban"></i>';
   }
   if(tipoBoton === 'comprar'){
-      btn.classList.add("btn", "color-fuente-primario", 'fondo-boton','w-50','my-2');
+      btn.classList.add("btn", "color-fuente-primario", 'fondo-boton','rounded-4');
       btn.textContent = 'comprar'
-  }
+      btn.setAttribute('id', 'botonComprar')
+      btn.setAttribute("data-bs-toggle", "modal");
+      btn.setAttribute("data-bs-target", "#modalComprar");
 
+  }
   return btn;
 }
 
@@ -139,9 +146,9 @@ function ejecutarEliminar() {
   if (producto != null) {
     eliminarProducto(producto.id);
   }
-
   cerrarModal("modalEliminar");
   listarProductos();
+  mostrarCarrito()
 }
 
 function cerrarModal(modalID) {
@@ -163,7 +170,8 @@ function sumarCantidadComprada(id) {
   guardar(clave_productosCarrito_ls,productos);
   listarProductos();
   }
-  function restarCantidadComprada(id) {
+
+function restarCantidadComprada(id) {
   const productos = obtenerProductosCarrito();
   for (let i = 0; i < productos.length; i++) {
     if (productos[i].id == id) {
@@ -171,6 +179,7 @@ function sumarCantidadComprada(id) {
                 eliminarProducto(id)
                 calcularTotal ()
                 listarProductos();
+                mostrarCarrito()
                 return
           }else{
               productos[i].cantidad = productos[i].cantidad - 1;}
@@ -180,7 +189,7 @@ function sumarCantidadComprada(id) {
   listarProductos();
   }
 
-  function calcularTotal (){
+function calcularTotal (){
     const costoCompra = document.getElementById('costoTotal')
     const productos = obtenerProductosCarrito()
     let total = 0 ;
@@ -197,11 +206,20 @@ function sumarCantidadComprada(id) {
 
   function botonComprar(){
     const div = document.createElement('div')
-     const costoCompra = document.getElementById('divComprar')
-      const btn_comprar = crearBotonAccion('comprar')
-      div.classList.add('justify-content-center','d-flex')
+    const costoCompra = document.getElementById('divComprar')
+    const btn_comprar = crearBotonAccion('comprar')
 
+      div.classList.add('justify-content-center','d-flex')
       div.appendChild(btn_comprar)
-    costoCompra.appendChild(div)
+      costoCompra.appendChild(div)
+
+   //  const botonComprar = document.getElementById('botonComprar')
+    //  botonComprar.addEventListener('click', comprarProductos);
 
   }
+
+ function limpiarProductos(){
+  eliminar(clave_productosCarrito_ls)
+  mostrarCarrito()
+  cerrarModal("modalComprar")
+ }
