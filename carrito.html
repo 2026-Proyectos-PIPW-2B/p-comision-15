@@ -41,11 +41,6 @@
               >
                 <i class="bi bi-person-fill-x"></i></button
             ></span>
-            <a href="carrito.html">
-              <button type="button" class="boton-link btn color-principal">
-                <i class="bi bi-cart"></i>
-              </button>
-            </a>
           </div>
         </div>
       </nav>
@@ -70,6 +65,7 @@
       </div>
     </div>
     <main class="container flex-grow-1">
+      <div id="carritoVacio">
       <div class="container px-5 py-2" id="featured-3">
         <h1 class="pb-2 border-bottom color-principal">Tu carrito:</h1>
         <div class="px-2 pt-2 my-2 text-center border-bottom">
@@ -91,8 +87,10 @@
           </div>
         </div>
       </div>
-
-      <div class="container color-fondo-gris">
+      </div>
+      
+      <div id="carrito">
+      <div class="container color-fondo-gris p-2">
         <h2 class="color-principal">
           Listado de productos agregados a tu carrito
         </h2>
@@ -110,8 +108,15 @@
             <tbody id="bodyTabla"></tbody>
           </table>
         </form>
+        
       </div>
+                <div id="divComprar" class="justify-content-center d-flex row mx-auto justify-content-center align-items-center w-25 bg-dark rounded-5 p-2 my-2">
+                   <div class="text-center color-fuente-primario" id="costoTotal"></div>
+              </div>
+            </div>
+  
     </main>
+
     <footer id="footer" class="color-fondo text-white py-4 px-4 px-md-0">
       <div class="container">
         <div class="row text-center text-md-start">

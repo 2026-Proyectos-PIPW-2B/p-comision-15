@@ -151,6 +151,11 @@ function crearCard(producto){
   const precioProducto = document.createElement('p');
       precioProducto.classList.add('card-text', 'fs-4', 'text-center');
       precioProducto.textContent = ("$ " + precio);
+
+       const cantStock = document.createElement('p')
+      cantStock.classList.add('card-text','text-center');
+      cantStock.textContent = ("Stock disponible: " + stock);
+    
   
   const imagenProducto = document.createElement('img');
   imagenProducto.setAttribute("src", "./img/" + img)
@@ -158,6 +163,7 @@ function crearCard(producto){
 
   card_body.appendChild(nombreProducto);
   card_body.appendChild(precioProducto);
+  card_body.appendChild(cantStock)
   card_body.appendChild(btn_comprar);
 
   card.appendChild(imagenProducto);
@@ -165,6 +171,7 @@ function crearCard(producto){
   col.appendChild(card);   
   muestraProductos.appendChild(col)
 }
+
 
 function agregarProductoAlCarrito (id, nombre, marca, precio ){
   const listadoProductos = obtener(carrito_key) || [];

@@ -1,4 +1,4 @@
-import { obtener } from "./gestorStorage.js";
+import { obtener, guardar } from "./gestorStorage.js";
 
 const clave_productosCarrito_ls = "productosComprados";
 
@@ -26,19 +26,19 @@ export function incrementarCantidadComprada(id) {
       productos[i].cantidad = productos[i].cantidad + 1;
     }
   }
-  localStorage.setItem(clave_productosCarrito_ls, JSON.stringify(productos));
+  guardar(clave_productosCarrito_ls,productos)
 }
 
 export function eliminarProducto(id) {
   let productos = obtenerProductosCarrito();
-
   for (let i = 0; i < productos.length; i++) {
     if (productos[i].id === id) {
       productos.splice(i, 1);
+        guardar(clave_productosCarrito_ls,productos)
       break;
     }
   }
-  localStorage.setItem(clave_productosCarrito_ls, JSON.stringify(productos));
+ 
 }
 
 
