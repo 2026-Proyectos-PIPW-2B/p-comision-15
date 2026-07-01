@@ -227,7 +227,7 @@ function precargarImagenes() {
     let imagen = document.createElement("img");
     imagen.setAttribute("src", "./img/" + imagenes[i]);
     imagen.setAttribute("data-name", imagenes[i]);
-    imagen.classList.add("col-2", "img-thumbnail", "hover-zoom");
+    imagen.classList.add("col-4", "img-thumbnail", "hover-zoom");
     divImagenes.appendChild(imagen);
 
     imagen.addEventListener("click", function (evento) {
