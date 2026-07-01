@@ -142,15 +142,6 @@ function crearProducto() {
 function validarForm() {
   let resultado = true;
 
-  let errores = {
-    nombreError: [],
-    categoriaError: [],
-    marcaError: [],
-    precioError: [],
-    stockError: [],
-    imgError: [],
-  };
-
   const nombreProducto = inputNombre.value;
   const categoriaProducto = inputCategoria.value;
   const marcaProducto = inputMarca.value;
@@ -158,38 +149,60 @@ function validarForm() {
   const stockProducto = inputStock.value;
   const imgProducto = inputImg.value;
 
-  if (nombreProducto.length < 4) {
-    resultado = false;
-    inputNombre.classList.add("is-invalid");
-    errores.nombreError.push("El nombre debe tener mas de 4 caracteres");
-  }
-  if (categoriaProducto === "") {
-    resultado = false;
-    inputCategoria.classList.add("is-invalid");
-    errores.categoriaError.push("Debe seleccionar una categoria");
-  }
-  if (marcaProducto === "") {
-    resultado = false;
-    inputMarca.classList.add("is-invalid");
-    errores.marcaError.push("Debe seleccionar una marca");
-  }
-  if (precioProducto <= 0) {
-    resultado = false;
-    inputPrecio.classList.add("is-invalid");
-    errores.precioError.push("El precio debe ser mayor a 0");
-  }
-  if (stockProducto <= 0) {
-    resultado = false;
-    inputStock.classList.add("is-invalid");
-    errores.stockError.push("El producto debe tener stock");
-  }
-  if (imgProducto === "") {
-    resultado = false;
-    inputImg.classList.add("is-invalid");
-    errores.imgError.add("Debe seleccionar una imagen");
+  if (nombreProducto.length >= 4) {
+    inputNombre.classList.remove("is-invalid")
+    inputNombre.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputNombre.classList.remove("is-valid")
+    inputNombre.classList.add("is-invalid")
   }
 
-  
+  if (categoriaProducto !== "") {
+    inputCategoria.classList.remove("is-invalid")
+    inputCategoria.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputCategoria.classList.remove("is-valid")
+    inputCategoria.classList.add("is-invalid")
+  }
+
+  if (marcaProducto !== "") {
+    inputMarca.classList.remove("is-invalid")
+    inputMarca.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputMarca.classList.remove("is-valid")
+    inputMarca.classList.add("is-invalid")
+  }
+
+  if (precioProducto > 0) {
+    inputPrecio.classList.remove("is-invalid")
+    inputPrecio.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputPrecio.classList.remove("is-valid")
+    inputPrecio.classList.add("is-invalid")
+  }
+
+  if (stockProducto > 0) {
+    inputStock.classList.remove("is-invalid")
+    inputStock.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputStock.classList.remove("is-valid")
+    inputStock.classList.add("is-invalid")
+  }
+
+  if (imgProducto !== "") {
+    inputImg.classList.remove("is-invalid")
+    inputImg.classList.add("is-valid");
+  } else {
+    resultado = false 
+    inputImg.classList.remove("is-valid")
+    inputImg.classList.add("is-invalid")
+  }
+
   return resultado;
 }
 
@@ -233,23 +246,40 @@ function ejecutarEditarProducto() {
   let categoria = inputEditarCategoria.value;
   let stock = inputEditarStock.value;
 
-  if (nombre.length < 4) {
-    resultado = false;
-    inputEditarNombre.classList.add("is-invalid");
+  if (nombre.length >= 4) {
+    inputEditarNombre.classList.remove("is-invalid")
+    inputEditarNombre.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputEditarNombre.classList.remove("is-valid")
+    inputEditarNombre.classList.add("is-invalid")
   }
 
-  if (categoria === "") {
-    resultado = false;
-    inputEditarCategoria.classList.add("is-invalid");
+  if (categoria !== "") {
+    inputEditarCategoria.classList.remove("is-invalid")
+    inputEditarCategoria.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputEditarCategoria.classList.remove("is-valid")
+    inputEditarCategoria.classList.add("is-invalid")
   }
 
-  if (stock <= 0) {
-    resultado = false;
-    inputEditarStock.classList.add("is-invalid");
+  if (stock > 0) {
+    inputEditarStock.classList.remove("is-invalid")
+    inputEditarStock.classList.add("is-valid");
+  } else {
+    resultado = false
+    inputEditarStock.classList.remove("is-valid")
+    inputEditarStock.classList.add("is-invalid")
   }
 
   if (resultado === true) {
     editarProducto(id, nombre, categoria, stock);
+
+    inputEditarNombre.classList.remove("is-invalid", "is-valid")
+    inputEditarCategoria.classList.remove("is-invalid", "is-valid")
+    inputEditarStock.classList.remove("is-invalid", "is-valid")
+
     cerrarModal("modalEditar");
     listarProductos();
   }
@@ -266,6 +296,7 @@ function ejecutarEliminarProducto() {
   cerrarModal("modalEliminar");
   listarProductos();
 }
+
 
 function abrirModal(modalID) {
   const modalElement = document.getElementById(modalID);
