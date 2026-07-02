@@ -76,50 +76,76 @@ function redirigirAlCarrito (){
 }
 
 function cargarInfomacion(){
-  const img1 = document.createElement('img')  
-  const id = crypto.randomUUID();
-  let link = './img/apple-logo.png'
-  img1.classList.add('card-img')
-  
-
   const listadoProductos = obtener('productos') || []
 
-  const administrador = {id, nombre:'administrador', contraseña:'administrador', estado:'habilitado', rol:'admin'}
-  const usuario = {id, nombre:'usuario', contraseña:'usuario', estado:'habilitado', rol:'usuario'}
-     img1.setAttribute('src', './img/Apple-logo.png');
+  const administrador = {id:'administrador0', nombre:'administrador', contraseña:'administrador', estado:'habilitado', rol:'admin'}
+  const usuario = {id:'usuario', nombre:'usuario', contraseña:'usuario', estado:'habilitado', rol:'usuario'}
       const producto1 = {
-      id: id,
-      nombre: 'monitor ASUS 24"',
-      categoria: 'celulares',
+      id: 'producto1',
+      nombre: 'Iphone17 pro max"',
+      categoria: 'Celulares',
       marca: 'iphone',
       precio: 2500000,
       stock: 15,
       img: 'Iphone17-promax.png',
     };
      const producto3 = {
-    id: id,
+    id: 'producto3',
     nombre:'monitor ASUS 24"',
-    categoria:'monitor',
+    categoria:'Monitor',
     marca:'asus',
     precio:3500000,
-    stock:15,
+    stock:7,
     img:'monitor-asus.png',};
      
     const producto2 = {
-    id: id,
-    nombre: 'Teclado ASUS ',
-    categoria: 'periferico',
+    id: 'producto2',
+    nombre: 'Monitor asus 22"',
+    categoria: 'Monitor',
     marca: 'asus',
     precio: 1500000,
     stock: 15,
     img: 'Asus-ProArt.png',};
 
-  guardar()
+      const producto4 = {
+    id: 'producto4',
+    nombre: 'Monitor ASUS 27" ',
+    categoria: 'Monitor',
+    marca: 'asus',
+    precio: 1500000,
+    stock: 10,
+    img: 'monitor-asus.png',};
 
-  listadoProductos.push(producto1,producto2,producto3)
+      const producto5 = {
+    id: 'producto5',
+    nombre: 'Monitor ASUS pro art',
+    categoria: 'Monitor',
+    marca: 'asus',
+    precio: 1500000,
+    stock: 9,
+    img: 'Asus-ProArt.png',};
+
+      const producto6 = {
+    id: 'producto6',
+    nombre: 'Iphone 16 ',
+    categoria: 'Celulares',
+    marca: 'iphone',
+    precio: 3500000,
+    stock: 8,
+    img: 'Iphone17-promax.png',};
+
+    const producto7= {
+    id: 'producto7',
+    nombre: 'Iphone-AirPods',
+    categoria: 'Perifericos',
+    marca: 'iphone',
+    precio: 1750000,
+    stock: 8,
+    img: 'Iphone-AirPods-Max.png',};
+
+  listadoProductos.push(producto1,producto2,producto3,producto4,producto5,producto6,producto7)
   agregarUsuarioLocalStorage(administrador)
   agregarUsuarioLocalStorage(usuario)
   guardar('productos',listadoProductos)
- // agregarProducto(producto2)
- // agregarProducto(producto3)
+
 }
